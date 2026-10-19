@@ -121,6 +121,7 @@ mark{background:#f3e48a;color:var(--ink);padding:0 3px;border-radius:3px}
 #s7 .s7-compare-card{padding:14px 16px;font-size:19px}
 #s7 .s7-compare-card h3{font-size:22px;margin-bottom:10px}
 #s7 .s7-compare-card dl{grid-template-columns:64px minmax(0,1fr);gap:6px 12px}
+#s7 .s7-compare-card .s7-compare-source{margin-top:8px;font-size:14px;color:var(--tea)}
 </style>
 <link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
 <style>.footer .flipbook{position:absolute;left:4vw;bottom:4px;margin:0;pointer-events:none}.footer .footer-notes{padding-left:72px}.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
@@ -248,8 +249,8 @@ mark{background:#f3e48a;color:var(--ink);padding:0 3px;border-radius:3px}
 <div class="shell"><header class="section-head"><h2 id="s7-title">怎麼解釋</h2><img class="art s7-art" src="assets/p06.png" width="534" height="291" alt=""></header>
 <div class="page-layout"><div class="content s7-content"><div class="route"><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#tree"/></svg><strong>決策樹（Decision Tree）</strong><span>規則看得到（白箱）</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#forest"/></svg><strong>隨機森林／XGBoost</strong><span>完整模型仍是黑箱，要靠工具解釋</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#glass"/></svg><strong>解釋回來</strong><span>整體與單筆，兩條路</span></div></div>
 <div class="s7-compare">
-<div class="s7-compare-card"><h3>整體</h3><dl><dt>誰問</dt><dd>稽核</dd><dt>問什麼</dt><dd>「模型整體最重視哪些特徵？」</dd><dt>用什麼</dt><dd>特徵重要性（Feature Importance）</dd></dl></div>
-<div class="s7-compare-card"><h3>單筆</h3><dl><dt>誰問</dt><dd>被拒絕的客戶</dd><dt>問什麼</dt><dd>「我這一筆為什麼被拒絕？」</dd><dt>用什麼</dt><dd>SHAP</dd></dl></div>
+<div class="s7-compare-card"><h3>整體</h3><dl><dt>誰問</dt><dd>稽核</dd><dt>問什麼</dt><dd>「模型整體最重視哪些特徵？」</dd><dt>用什麼</dt><dd>特徵重要性（Feature Importance）</dd></dl><p class="s7-compare-source">對應 115-1 第 28 題</p></div>
+<div class="s7-compare-card"><h3>單筆</h3><dl><dt>誰問</dt><dd>被拒絕的客戶</dd><dt>問什麼</dt><dd>「我這一筆為什麼被拒絕？」</dd><dt>用什麼</dt><dd>SHAP</dd></dl><p class="s7-compare-source">對應 115-1 第 37 題（下方）</p></div>
 </div>
 <div class="s7-exam"><p class="s7-source">115-1 第 37 題</p>
 <article class="quiz" data-qid="official-37" data-answer="A">
