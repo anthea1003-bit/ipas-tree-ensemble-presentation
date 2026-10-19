@@ -4,7 +4,7 @@ import { advanceWalk } from './walk-motion.js';
 const BASE = new URL('./characters/', import.meta.url);
 const CSS = new URL('./tea-characters.css', import.meta.url);
 const ACTIONS = new Set(['idle', 'blink', 'wave', 'float', 'walk']);
-const REQUIRED = ['head-blank', 'body', 'arm-l', 'arm-r', 'arm-r-wave', 'eye-open', 'eye-closed', 'mouth-smile', 'mouth-o'];
+const REQUIRED = ['head-blank', 'body', 'arm-l', 'arm-r', 'arm-l-wave', 'arm-r-wave', 'eye-open', 'eye-closed', 'mouth-smile', 'mouth-o'];
 const manifests = new Map();
 const warnings = new Set();
 
@@ -116,8 +116,9 @@ export class TeaChara extends HTMLElement {
       const images = [];
       const directory = new URL(`${name}/`, BASE);
       for (const [key, part] of Object.entries(manifest.parts)) {
-        // Only the waving arm has an authored baseline; resting parts stay neutral.
-        const baseAngle = key === 'arm-r-wave' && Number.isFinite(part.rotation) ? part.rotation : 0;
+        // Only waving arms have authored baselines; resting parts stay neutral.
+        const wavingArm = key === 'arm-l-wave' || key === 'arm-r-wave';
+        const baseAngle = wavingArm && Number.isFinite(part.rotation) ? part.rotation : 0;
         const element = document.createElement('div');
         element.className = 'part'; element.dataset.part = key;
         Object.assign(element.style, {
@@ -126,7 +127,7 @@ export class TeaChara extends HTMLElement {
           zIndex: String(part.z), transform: `rotate(${baseAngle}deg)`, transformOrigin: `${part.pivot.x * 100}% ${part.pivot.y * 100}%`,
         });
         const img = new Image(); img.alt = ''; img.draggable = false;
-        if (key === 'arm-r-wave') element.style.setProperty('--base-angle', `${baseAngle}deg`);
+        if (wavingArm) element.style.setProperty('--base-angle', `${baseAngle}deg`);
         img.src = new URL(part.file, directory).href;
         element.append(img); images.push(img);
         if (key.startsWith('arm-')) {
@@ -135,7 +136,7 @@ export class TeaChara extends HTMLElement {
           pivot.style.left = `${(part.x + part.width * part.pivot.x) / manifest.canvas.width * 100}%`;
           pivot.style.top = `${(part.y + part.height * part.pivot.y) / manifest.canvas.height * 100}%`;
           rig.append(pivot);
-          if (key === 'arm-r-wave') {
+          if (wavingArm) {
             const guide = document.createElement('span'); guide.className = 'wave-guide';
             guide.dataset.guide = key;
             guide.style.left = pivot.style.left; guide.style.top = pivot.style.top;
@@ -252,7 +253,8 @@ export class TeaChara extends HTMLElement {
       'eye-open': true, 'eye-closed': false,
       'mouth-o': this._manifest.defaultMouth === 'mouth-o',
       'mouth-smile': this._manifest.defaultMouth !== 'mouth-o',
-      'arm-r': action !== 'wave', 'arm-r-wave': action === 'wave',
+      'arm-l': action !== 'wave', 'arm-r': action !== 'wave',
+      'arm-l-wave': action === 'wave', 'arm-r-wave': action === 'wave',
     })) {
       const part = this._rig.querySelector(`[data-part="${key}"]`);
       if (part) part.hidden = !visible;
@@ -263,8 +265,10 @@ export class TeaChara extends HTMLElement {
     }
     if (paused) return;
     if (action === 'wave') {
-      const arm = this._rig.querySelector('[data-part="arm-r-wave"]');
-      arm.style.animation = 'none'; void arm.offsetWidth; arm.style.animation = '';
+      const arms = ['arm-l-wave', 'arm-r-wave'].map(key => this._rig.querySelector(`[data-part="${key}"]`));
+      for (const arm of arms) arm.style.animation = 'none';
+      void this._rig.offsetWidth;
+      for (const arm of arms) arm.style.animation = '';
       if (!this.hasAttribute('loop')) this._later(() => this.play('idle'), 1800);
     }
     if (action === 'blink') this._blink();

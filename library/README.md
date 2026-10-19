@@ -27,8 +27,8 @@
 | `name="xiaoye"` | 選角色，小葉用 `xiaoye`，奶茶用 `naicha`。 |
 | `action="idle"` | 2.4 秒上下呼吸 2 px，並自然眨眼。 |
 | `action="blink"` | 立即眨眼一次，之後保持呼吸與自然眨眼。 |
-| `action="wave"` | 揮手 3 次，1.8 秒後 `action` 自動回到 `idle`。 |
-| `loop` | 加上此屬性就持續揮手；拿掉後再揮 3 次回待機。 |
+| `action="wave"` | 雙手一起揮 3 次，每次 0.6 秒；左右鏡像擺動，1.8 秒後 `action` 自動回到 `idle`。 |
+| `loop` | 加上此屬性就持續雙手揮動；拿掉後再揮 3 次回待機。 |
 | `action="float"` | 每 3 秒上下漂浮 6 px，底下有同步縮放的影子。 |
 | `action="walk"` | 4 格走路，每格 0.15 秒，碰到父容器左右內緣就鏡像轉向；缺圖才回待機，console 只提醒一次。 |
 | `size="220"` | 角色畫布高度 220 px，全部零件等比縮放。呼吸／漂浮位移與影子在畫布外另留約 12 px。 |
@@ -72,7 +72,8 @@ python3 tools/cut_parts.py parts/naicha/sheet.png library/characters/naicha
 - `schemaVersion: 1`；`canvas.width / height` 是設計畫布，小葉為 500 × 800，奶茶為 620 × 800。
 - `parts` 以固定零件名稱為 key；`file` 是同資料夾 PNG 檔名。
 - `x / y / width / height` 使用設計畫布單位，左上角為原點；`z` 越大越前面。
-- `pivot.x / y` 是零件內的 0–1 比例；手臂以肩膀小圓點為軸心。定稿肩膀落在軀幹左右往內 8%、距頂端 12%；奶茶排除飄巾。`rotation` 為基準角，小葉 −15°、奶茶 −20°，波動 ±15°，每次 0.6 秒。
+- `pivot.x / y` 是零件內的 0–1 比例；手臂以肩膀小圓點為軸心。定稿肩膀落在軀幹 x＝16%／84%、距頂端 12%；奶茶排除飄巾。`rotation` 為揮手基準角：小葉左 +15°／右 −15°、奶茶左 +20°／右 −20°；波動 ±15°，左手方向與右手相反，每次 0.6 秒。一般手臂維持 0°，所有手臂 z=1，在身體後方。
+- `arm-l-wave.png` 由 `arm-r-wave.png` 以 Pillow `transpose(Image.Transpose.FLIP_LEFT_RIGHT)` 鏡像；位置、pivot 與 palm 依軀幹中線鏡像，`sourceBounds` 記錄原右手來源，`mirroredFrom` 標示鏡像來源。wave 同時隱藏一般左右手、顯示雙手揮動零件，回待機時還原。
 - 可選 `rotation` 是靜態角度（度）；依各角色手臂方向向外微調，讓手掌露在身體外側。
 - `sourceBounds` 是切圖後在 sheet 的 `[x,y,width,height]`；完整切圖資訊在 `extraction.json`。
 - 重跑切圖會更新輸出 PNG 與來源位置，但保留既有 manifest 的組裝位置、尺寸與軸心；若換成不同畫稿，須同步調整尺寸比例。
