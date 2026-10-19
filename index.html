@@ -70,6 +70,23 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 @media(max-width:600px){.cover .hero{grid-template-columns:minmax(0,1fr);gap:16px;align-content:center}.cover h1{font-size:30px;margin-bottom:12px}.cover .muted{font-size:16px}.cover .art{height:min(32vh,240px)}.cover .reading{font-size:18px;margin-top:8px}.cover-entrance{padding:16px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{html,body{height:auto;overflow:visible}.topbar,.edge,.progress,.back-link,.footer{display:none}.slide{position:relative;inset:auto;visibility:visible!important;opacity:1;transform:none;overflow:visible;break-after:page}.takeaways p{opacity:1;transform:none}.shell{min-height:0}}
+/* Page 7: symmetric explanations followed by the unchanged full question. */
+#s7 .s7-art{position:static;width:120px;margin:0}
+#s7 .s7-content{justify-content:flex-start}
+#s7 .s7-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#s7 .s7-compare-card{padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:#f4f0e6}
+#s7 .s7-compare-card h3{color:var(--green);margin-bottom:8px}
+#s7 .s7-compare-card dl{display:grid;grid-template-columns:60px 1fr;gap:4px 12px;margin:0}#s7 .s7-compare-card dt{color:var(--muted)}#s7 .s7-compare-card dd{margin:0}
+#s7 .s7-exam{border:1px solid var(--line);border-radius:10px;padding:10px 12px}#s7 .s7-source{color:var(--tea);font-size:17px;margin-bottom:8px}
+/* Page 3: aligned question, cue and answer columns; reveal behavior is unchanged. */
+#s3 .content{margin-right:calc(14vw + 24px)}
+#s3 .art{width:14vw}
+#s3 .summary-head,#s3 .row-toggle{display:grid;grid-template-columns:138px minmax(0,.9fr) minmax(0,1.3fr);column-gap:16px;align-items:center;padding:12px}
+#s3 .summary-head{border:1px solid transparent;border-bottom-color:var(--line);font-weight:650;color:var(--muted)}
+#s3 .row-toggle{min-height:70px}
+#s3 .row-toggle>span{min-width:0}
+#s3 .summary-cue{grid-column:2}
+#s3 .summary-answer{grid-column:3}
 </style>
 <link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
 <style>.footer .flipbook{position:absolute;left:4vw;bottom:4px;margin:0;pointer-events:none}.footer .footer-notes{padding-left:72px}.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
@@ -89,12 +106,12 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 </div></div></section>
 <section class="slide" id="s2" data-title="你想要的是一棵樹，還是一片森林？" aria-labelledby="s2-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s2-title">你想要的是一棵樹，還是一片森林？</h2><img class="art" src="assets/p01.png" width="657" height="445" alt=""></header>
-<div class="page-layout"><div class="content"><div class="route"><button type="button" data-goto="4"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#tree"/></svg><strong>一棵決策樹（Decision Tree）</strong><span>看得到每條規則，但太會背</span></button><button type="button" data-goto="5"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#forest"/></svg><strong>一片森林（集成：Random Forest／XGBoost）</strong><span>準，但看不到規則</span></button><button type="button" data-goto="7"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#glass"/></svg><strong>解釋回來</strong><span>特徵重要性（Feature Importance）看整體、SHAP 看單筆</span></button></div><p class="source-note">兩場公告試題：樹模型 4 題（114-2 第 8、18 題；115-1 第 16、28 題）、可解釋性 2 題（114-2 第 14 題；115-1 第 37 題），合計 12 分。</p><table class=""><thead><tr><th scope="col">看到</th><th scope="col">選</th></tr></thead><tbody><tr><td>資訊增益（Information Gain）、基尼不純度（Gini Impurity）</td><td>決策樹的分裂指標</td></tr><tr><td>Bootstrap 抽樣＋每次分裂隨機選部分特徵、平行訓練、投票／平均</td><td>隨機森林（Random Forest）＝ Bagging，降變異（Variance）</td></tr><tr><td>逐步修正目前累積模型的殘差（前一階段的誤差）、序列訓練</td><td>梯度提升（Gradient Boosting）＝ Boosting，降偏差（Bias）</td></tr><tr><td>正則化項＋缺失值自動處理＋並行化訓練</td><td>XGBoost 相較傳統 GBDT 的改進</td></tr><tr><td>目標函數加樹的複雜度懲罰項（深度、葉節點數、葉節點權重 L2）</td><td>XGBoost 防過擬合的設計</td></tr><tr><td>非線性關係＋要整體特徵重要性供稽核</td><td>隨機森林迴歸（Random Forest Regression）</td></tr><tr><td>要解釋單筆預測的原因</td><td>SHAP；要看整體重視哪些特徵 → 全域特徵重要性</td></tr><tr><td>葉子式生長（Leaf-wise）、更快但較易過擬合</td><td>LightGBM</td></tr><tr><td>醫療診斷、貸款核准這類高風險決策，要能說明理由</td><td>可解釋性最關鍵的情境</td></tr></tbody></table></div>
+<div class="page-layout"><div class="content"><div class="route"><button type="button" data-goto="4"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#tree"/></svg><strong>一棵決策樹（Decision Tree）</strong><span>看得到每條規則，但太會背</span></button><button type="button" data-goto="5"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#forest"/></svg><strong>一片森林（集成：Random Forest／XGBoost）</strong><span>穩，但看不到規則</span></button><button type="button" data-goto="7"><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#glass"/></svg><strong>解釋回來</strong><span>特徵重要性（Feature Importance）看整體、SHAP 看單筆</span></button></div><p class="source-note">兩場公告試題：樹模型 4 題（114-2 第 8、18 題；115-1 第 16、28 題）、可解釋性 2 題（114-2 第 14 題；115-1 第 37 題），合計 12 分。</p><table class=""><thead><tr><th scope="col">看到</th><th scope="col">選</th></tr></thead><tbody><tr><td>Bootstrap 抽樣＋每次分裂隨機選部分特徵、平行訓練、投票／平均</td><td>隨機森林（Random Forest）＝ Bagging，降變異（Variance）</td></tr><tr><td>逐步修正目前累積模型的殘差（前一階段的誤差）、序列訓練</td><td>梯度提升（Gradient Boosting）＝ Boosting，降偏差（Bias）</td></tr><tr><td>要解釋單筆預測的原因</td><td>SHAP；要看整體重視哪些特徵 → 全域特徵重要性</td></tr></tbody></table></div>
 </div>
 </div></section>
 <section class="slide" id="s3" data-title="兩場考過的 4 題" aria-labelledby="s3-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s3-title">兩場考過的 4 題</h2></header>
-<div class="page-layout"><div class="content"><div class="accordion"><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-0" type="button"><span>114-2 第 8 題</span><strong>資訊增益主要用在哪類模型</strong><span class="summary-answer" hidden>(D) 遞迴分裂的決策樹</span><small>資訊增益</small></button><div class="exam-panel" id="exam-0" hidden><article class="quiz" data-qid="official-1" data-answer="D">
+<div class="page-layout"><div class="content"><div class="accordion"><div class="summary-head"><span>題目</span><span>看到</span><span>選</span></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-0" type="button"><span>114-2 第 8 題</span><span class="summary-cue">資訊增益</span><span class="summary-answer" hidden>(D) 決策樹（決定樹怎麼分岔）</span></button><div class="exam-panel" id="exam-0" hidden><article class="quiz" data-qid="official-1" data-answer="D">
 <div class="verbatim"><div class="question"><p>資訊增益（Information Gain）常用於衡量特徵對分類結果的不確定性貢獻程度，並據以進行特徵選擇。此方法主要應用於下列哪一類模型架構中？</p></div>
 <div class="options"><button type="button" class="option" aria-pressed="false">(A)使用 L1 正則化進行特徵篩選的線性模型；</button>
 <button type="button" class="option" aria-pressed="false">(B)利用激活函數（Activation Function）進行特徵擷取的深度神經網路；</button>
@@ -102,7 +119,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">(D)透過遞迴分裂方式建立分類規則的決策樹模型</button>
 </div></div>
 <div class="feedback" hidden role="status"><p class="result">正解 D</p><p>資訊增益</p></div>
-</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-1" type="button"><span>114-2 第 18 題</span><strong>XGBoost 相較傳統 GBDT 的主要技術改進</strong><span class="summary-answer" hidden>(A) 正則化＋缺失值自動處理＋並行化</span><small>XGBoost 比 GBDT 多了什麼</small></button><div class="exam-panel" id="exam-1" hidden><article class="quiz" data-qid="official-2" data-answer="A">
+</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-1" type="button"><span>114-2 第 18 題</span><span class="summary-cue">XGBoost 比 GBDT 多了什麼</span><span class="summary-answer" hidden>(A) 正則化＋缺失值自動處理＋並行化</span></button><div class="exam-panel" id="exam-1" hidden><article class="quiz" data-qid="official-2" data-answer="A">
 <div class="verbatim"><div class="question"><p>下列何者最能同時反映 XGBoost（eXtreme Gradient Boosting）相較於傳統梯度提升決策樹（Gradient Boosting Decision Tree, GBDT）的主要技術改進？</p></div>
 <div class="options"><button type="button" class="option" aria-pressed="false">(A)引入正則化項（Regularization）以抑制過擬合，並支援缺失值自動處理與並行化訓練；</button>
 <button type="button" class="option" aria-pressed="false">(B)改以隨機森林（Random Forest）架構取代樹模型以提升準確率；</button>
@@ -110,7 +127,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">(D)採用批次正規化（Batch Normalization）技術提升模型穩定性</button>
 </div></div>
 <div class="feedback" hidden role="status"><p class="result">正解 A</p><p>XGBoost 比 GBDT 多了什麼</p></div>
-</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-2" type="button"><span>115-1 第 16 題</span><strong>XGBoost 目標函數加了什麼防過擬合</strong><span class="summary-answer" hidden>(A) 樹的複雜度懲罰項</span><small>目標函數正則化</small></button><div class="exam-panel" id="exam-2" hidden><article class="quiz" data-qid="official-3" data-answer="A">
+</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-2" type="button"><span>115-1 第 16 題</span><span class="summary-cue">XGBoost 怎麼防過擬合</span><span class="summary-answer" hidden>(A) 樹的複雜度懲罰（不讓樹長太複雜）</span></button><div class="exam-panel" id="exam-2" hidden><article class="quiz" data-qid="official-3" data-answer="A">
 <div class="verbatim"><div class="question"><p>某資料科學家在信用評分任務中使用 XGBoost 建立模型，發現模型在訓練集表現良好但驗證集出現過擬合跡象。他檢視其模型設計，發現 XGBoost 在目標函數（Objective Function）中引入額外的正則化機制以控制模型複雜度。相較於傳統梯度提升決策樹（GBDT），XGBoost 在其核心目標函數中加入了下列哪一種關鍵設計，使其具備更強的防過擬合能力？</p></div>
 <div class="options"><button type="button" class="option" aria-pressed="false">(A)加入樹的複雜度懲罰項（包含深度、葉節點數量與葉節點權重的 L2 正則化）；</button>
 <button type="button" class="option" aria-pressed="false">(B)加入動態學習率（Dynamic Learning Rate）的強制衰減機制；</button>
@@ -118,7 +135,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">(D)強制所有決策樹深度為 1（Decision Stumps）</button>
 </div></div>
 <div class="feedback" hidden role="status"><p class="result">正解 A</p><p>目標函數正則化</p></div>
-</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-3" type="button"><span>115-1 第 28 題</span><strong>非線性＋要整體特徵重要性供稽核，選哪個模型</strong><span class="summary-answer" hidden>(B) 隨機森林迴歸</span><small>非線性＋特徵重要性</small></button><div class="exam-panel" id="exam-3" hidden><article class="quiz" data-qid="official-4" data-answer="B">
+</article></div></div><div class="exam-row"><button class="row-toggle" aria-expanded="false" aria-controls="exam-3" type="button"><span>115-1 第 28 題</span><span class="summary-cue">非線性＋要整體特徵重要性</span><span class="summary-answer" hidden>(B) 隨機森林迴歸</span></button><div class="exam-panel" id="exam-3" hidden><article class="quiz" data-qid="official-4" data-answer="B">
 <div class="verbatim"><div class="question"><p>某房仲平台要預測物件成交價，資料集含 50 個特徵，其中部分特徵與房價呈非線性關係，且業務單位要求模型須能提供整體特徵重要性以供稽核。下列哪一種模型選擇策略最符合需求？</p></div>
 <div class="options"><button type="button" class="option" aria-pressed="false">(A)使用羅吉斯迴歸（Logistic Regression），透過線性係數解釋特徵影響，但無法有效建模非線性關係；</button>
 <button type="button" class="option" aria-pressed="false">(B)使用隨機森林迴歸（Random Forest Regression），可處理非線性關係，並提供整體特徵重要性（Feature Importance）作為解釋依據；</button>
@@ -178,9 +195,15 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 </article></div>
 </div>
 </div></section>
-<section class="slide" id="s7" data-title="準了之後，怎麼解釋給稽核看" aria-labelledby="s7-title" aria-hidden="true" inert>
-<div class="shell"><header class="section-head"><h2 id="s7-title">準了之後，怎麼解釋給稽核看</h2></header>
-<div class="page-layout"><div class="content"><div class="route"><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#tree"/></svg><strong>決策樹（Decision Tree）</strong><span>規則看得到（白箱）</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#forest"/></svg><strong>隨機森林／XGBoost</strong><span>完整模型仍是黑箱</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#glass"/></svg><strong>解釋回來</strong><span>整體與單筆，兩條路</span></div></div><div class="flip-grid"><div class="flip-card"><button class="flip-toggle" type="button" aria-expanded="false" aria-controls="global-back">整體｜模型最重視哪些特徵</button><div class="flip-front"><h3>特徵重要性</h3><p>Feature Importance</p><p>給稽核，說明模型整體重視哪些特徵。</p></div><div class="flip-back" id="global-back" hidden data-answer="B"><p>115-1 第 28 題</p><p>非線性＋要整體特徵重要性供稽核，選哪個模型</p><h3>正解 B｜隨機森林迴歸</h3><p>Random Forest Regression</p></div></div><div class="flip-card"><button class="flip-toggle" type="button" aria-expanded="false" aria-controls="local-back">單筆｜這一筆為什麼被拒絕</button><div class="flip-front"><h3>SHAP</h3><p>SHapley Additive exPlanations</p><p>給客戶、給監管，說明單筆預測原因。</p></div><div class="flip-back" id="local-back" hidden><article class="quiz" data-qid="official-37" data-answer="A">
+<section class="slide" id="s7" data-title="怎麼解釋" aria-labelledby="s7-title" aria-hidden="true" inert>
+<div class="shell"><header class="section-head"><h2 id="s7-title">怎麼解釋</h2><img class="art s7-art" src="assets/p06.png" width="534" height="291" alt=""></header>
+<div class="page-layout"><div class="content s7-content"><div class="route"><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#tree"/></svg><strong>決策樹（Decision Tree）</strong><span>規則看得到（白箱）</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#forest"/></svg><strong>隨機森林／XGBoost</strong><span>完整模型仍是黑箱</span></div><div><svg class="route-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#glass"/></svg><strong>解釋回來</strong><span>整體與單筆，兩條路</span></div></div>
+<div class="s7-compare">
+<div class="s7-compare-card"><h3>整體</h3><dl><dt>誰問</dt><dd>稽核</dd><dt>問什麼</dt><dd>「模型整體最重視哪些特徵？」</dd><dt>用什麼</dt><dd>特徵重要性（Feature Importance）</dd></dl></div>
+<div class="s7-compare-card"><h3>單筆</h3><dl><dt>誰問</dt><dd>被拒絕的客戶</dd><dt>問什麼</dt><dd>「我這一筆為什麼被拒絕？」</dd><dt>用什麼</dt><dd>SHAP</dd></dl></div>
+</div>
+<div class="s7-exam"><p class="s7-source">115-1 第 37 題</p>
+<article class="quiz" data-qid="official-37" data-answer="A">
 <div class="verbatim"><div class="question"><p>某銀行導入 AI 貸款審核系統，監管要求每筆被拒絕的申請須提供可理解的拒絕原因。技術主管評估以下方案，哪一種最能實現個別預測的局部可解釋性（Local Explainability）？</p></div>
 <div class="options"><button type="button" class="option" aria-pressed="false">(A)SHAP（SHapley Additive exPlanations）值：計算每個特徵對單筆預測的貢獻；</button>
 <button type="button" class="option" aria-pressed="false">(B)全域特徵重要性（Global Feature Importance）：說明整體特徵影響，無法解釋單一個案；</button>
@@ -188,9 +211,8 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">(D)混淆矩陣（Confusion Matrix）：呈現整體分類表現</button>
 </div></div>
 <div class="feedback" hidden role="status"><p class="result">正解 A</p><p>SHAP 計算每個特徵對單筆預測的貢獻。</p></div>
-</article></div></div></div></div>
-<img class="art" src="assets/p06.png" width="534" height="291" alt="">
-</div>
+</article>
+</div></div></div>
 </div></section>
 <section class="slide" id="s8" data-title="3 句話帶走" aria-labelledby="s8-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s8-title">3 句話帶走</h2></header>
