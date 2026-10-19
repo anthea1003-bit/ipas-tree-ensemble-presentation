@@ -72,7 +72,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 @media print{html,body{height:auto;overflow:visible}.topbar,.edge,.progress,.back-link,.footer{display:none}.slide{position:relative;inset:auto;visibility:visible!important;opacity:1;transform:none;overflow:visible;break-after:page}.takeaways p{opacity:1;transform:none}.shell{min-height:0}}
 </style>
 <link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
-<style>.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
+<style>.footer .flipbook{flex:0 0 auto;margin:0 14px 0 8px;align-self:flex-end;position:relative;bottom:4px}.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
 </head>
 <body>
 <svg class="svg-defs" aria-hidden="true"><defs>
@@ -265,6 +265,7 @@ importances = rf.___________________________</code></pre></div>
 <p data-slide="s6" class="bridge after-answer" hidden>看到 Random Forest 想 Bagging，看到 XGBoost 想 Boosting，不要比誰一定準。</p>
 <p data-slide="s7" class="bridge" hidden>集成模型是黑箱，整體看特徵重要性，單筆看 SHAP。</p>
 </div>
+<tea-chara id="flipbook" class="flipbook" name="xiaoye" mode="flipbook" frames="walk" frame="1" size="58" breathe aria-hidden="true"></tea-chara>
 <div class="controls">
 <button id="mode-toggle" class="mode-toggle" type="button" aria-pressed="false" hidden>切換為解析模式</button>
 <span id="page-number" class="page-number" aria-label="頁碼" aria-live="polite">1 / 11</span>
@@ -363,6 +364,9 @@ addEventListener('resize',fitDeck);fitDeck();showSlide(0);
 const waveOnEnter=slide=>slide.querySelectorAll('tea-chara[data-wave-on-enter]').forEach(c=>{const go=()=>c.play&&c.play('wave');c.dataset.state==='ready'?go():c.addEventListener('tea-ready',go,{once:true});});
 new MutationObserver(list=>list.forEach(m=>{if(m.target.classList.contains('is-active'))waveOnEnter(m.target);})).observe(document.querySelector('main.deck'),{attributes:true,attributeFilter:['class'],subtree:true});
 document.querySelectorAll('section.slide.is-active').forEach(waveOnEnter);
+const flip=document.getElementById('flipbook');const slidesAll=[...document.querySelectorAll('section.slide')];
+const syncFlip=()=>{const i=slidesAll.findIndex(s=>s.classList.contains('is-active'));if(flip&&i>=0)flip.setAttribute('frame',String(i+1));};
+new MutationObserver(syncFlip).observe(document.querySelector('main.deck'),{attributes:true,attributeFilter:['class'],subtree:true});syncFlip();
 </script>
 </body>
 </html>

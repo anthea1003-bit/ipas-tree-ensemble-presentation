@@ -44,7 +44,12 @@
         231
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 173
+      "transparent_hole_pixels": 165,
+      "alphaFade": {
+        "topFraction": 0.15,
+        "topMultiplier": 0,
+        "bottomMultiplier": 1
+      }
     },
     "arm-r": {
       "file": "arm-r.png",
@@ -55,7 +60,12 @@
         218
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 190
+      "transparent_hole_pixels": 179,
+      "alphaFade": {
+        "topFraction": 0.15,
+        "topMultiplier": 0,
+        "bottomMultiplier": 1
+      }
     },
     "arm-r-wave": {
       "file": "arm-r-wave.png",

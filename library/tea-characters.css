@@ -20,9 +20,19 @@ tea-chara { display: inline-block; vertical-align: bottom; }
 :host([flip]) .mirror { transform: scaleX(-1); }
 :host .moving .breath { animation: tea-breathe 2.4s ease-in-out infinite; }
 :host .moving.action-float .float { animation: tea-float 3s ease-in-out infinite; }
-:host .action-wave .part:is([data-part="arm-l-wave"], [data-part="arm-r-wave"]) { animation: tea-wave .6s ease-in-out 3; }
-:host([loop]) .action-wave .part:is([data-part="arm-l-wave"], [data-part="arm-r-wave"]) { animation-iteration-count: infinite; }
-:host .part[data-part="arm-l-wave"] { --wave-swing: -15deg; }
+/* One shot: raise 0–.2s, swing .2–2s, lower 2–2.35s. Keep both sets
+   mounted for the crossfade; only hide raised arms once lowering is complete. */
+:host .action-wave .part:is([data-part="arm-l-wave"], [data-part="arm-r-wave"]) {
+  animation: tea-wave-raise .2s ease-out both, tea-wave .6s ease-in-out .2s 3, tea-wave-lower .35s ease-in 2s forwards;
+}
+:host .action-wave .part:is([data-part="arm-l"], [data-part="arm-r"]) {
+  animation: tea-arm-fade-out .2s linear both, tea-arm-fade-in .2s linear 2s forwards;
+}
+:host([loop]) .action-wave .part:is([data-part="arm-l-wave"], [data-part="arm-r-wave"]) {
+  animation: tea-wave-raise .2s ease-out both, tea-wave .6s ease-in-out .2s infinite;
+}
+:host([loop]) .action-wave .part:is([data-part="arm-l"], [data-part="arm-r"]) { animation: tea-arm-fade-out .2s linear both; }
+:host .part[data-part="arm-l-wave"] { --wave-swing: -15deg; --wave-drop: -75deg; }
 :host .shadow { display: none; position: absolute; width: 44%; height: 4%; left: 28%; bottom: -4%; background: #878b8760; border-radius: 50%; filter: blur(2px); }
 :host .moving.action-float .shadow { display: block; animation: tea-shadow 3s ease-in-out infinite; }
 :host .pivot { display: none; position: absolute; z-index: 20; width: 7px; height: 7px; border: 1px solid white; border-radius: 50%; background: #d73f68; box-shadow: 0 0 0 1px #552638; transform: translate(-50%, -50%); pointer-events: none; }
@@ -35,6 +45,35 @@ tea-chara { display: inline-block; vertical-align: bottom; }
 @keyframes tea-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes tea-shadow { 0%, 100% { transform: scaleX(1); opacity: .65; } 50% { transform: scaleX(.72); opacity: .35; } }
 @keyframes tea-wave { 0%, 100% { transform: rotate(var(--base-angle)); } 25% { transform: rotate(calc(var(--base-angle) + var(--wave-swing, 15deg))); } 75% { transform: rotate(calc(var(--base-angle) - var(--wave-swing, 15deg))); } }
+@keyframes tea-wave-raise {
+  from { transform: rotate(calc(var(--base-angle) + var(--wave-drop, 75deg))); opacity: 0; }
+  to { transform: rotate(var(--base-angle)); opacity: 1; }
+}
+@keyframes tea-wave-lower {
+  from { transform: rotate(var(--base-angle)); opacity: 1; }
+  to { transform: rotate(calc(var(--base-angle) + var(--wave-drop, 75deg))); opacity: 0; }
+}
+@keyframes tea-arm-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes tea-arm-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
 :host .moving .breath, :host .moving .float, :host .action-wave .part, :host .shadow, :host .walk-track { animation: none !important; }
+}
+
+/* Complete hand-drawn frames: WAAPI uses steps(1, end) at manifest offsets. */
+:host .frame-window { position: absolute; inset: 0; overflow: hidden; }
+:host .frame-track { display: flex; height: 100%; }
+:host .frame-track img { display: block; height: 100%; user-select: none; }
+:host .frame-blink { position: absolute; inset: 0; }
+:host .frame-blink-base { position: absolute; inset: 0; width: 100%; height: 100%; }
+:host .frame-eyelids { position: absolute; }
+:host .moving.frame-mode .breath { transform-origin: 50% 100%; animation: tea-frame-breathe 2.4s ease-in-out infinite; }
+:host .moving.frame-mode:is(.action-wave, .action-walk) .breath { animation: none; }
+@keyframes tea-frame-breathe { 0%, 100% { transform: scale(.98); } 50% { transform: scale(1.02); } }
+
+/* Manual pages never interpolate, travel, blink, or inherit action animation. */
+:host .flipbook .frame-track { transition: none; animation: none; }
+:host .flipbook-breathing .breath { transform-origin: 50% 100%; animation: tea-flipbook-breathe 2.4s ease-in-out infinite; }
+@keyframes tea-flipbook-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+@media (prefers-reduced-motion: reduce) {
+  :host .flipbook .breath { animation: none !important; }
 }

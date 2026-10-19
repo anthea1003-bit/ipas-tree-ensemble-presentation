@@ -6,7 +6,7 @@
     "width": 500,
     "height": 800
   },
-  "notes": "簡報插圖母本 final4；肩膀依軀幹 16%/84% × 12%；手臂 z=1，body=2，head=4。軀幹排除領巾／圍巾。",
+  "notes": "簡報插圖母本 final4；垂手肩膀依軀幹 10%/90% × 12%，頂端 15% alpha 向上線性淡至 0；舉手保留 16%/84% × 12%；手臂 z=1，body=2，head=4。軀幹排除領巾／圍巾。",
   "parts": {
     "head-blank": {
       "file": "head-blank.png",
@@ -46,7 +46,7 @@
     },
     "arm-l": {
       "file": "arm-l.png",
-      "x": 182.71045858514043,
+      "x": 170.1364379665837,
       "y": 509.88743020848585,
       "width": 84,
       "height": 174.95172413793105,
@@ -65,7 +65,7 @@
     },
     "arm-r": {
       "file": "arm-r.png",
-      "x": 282.42477244153883,
+      "x": 294.9987930600955,
       "y": 504.30980194944465,
       "width": 84,
       "height": 162.3658536585366,
@@ -232,5 +232,10 @@
     264,
     280
   ],
-  "defaultMouth": "mouth-o"
+  "defaultMouth": "mouth-o",
+  "frames": {
+    "wave": "frames/frames.json",
+    "idle": "frames/frames.json",
+    "walk": "frames/frames.json"
+  }
 }

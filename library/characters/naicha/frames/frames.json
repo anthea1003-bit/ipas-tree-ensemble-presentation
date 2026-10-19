@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "frames": {
+    "wave": {
+      "files": [
+        "frames/wave-01.png",
+        "frames/wave-02.png",
+        "frames/wave-03.png",
+        "frames/wave-04.png",
+        "frames/wave-05.png",
+        "frames/wave-06.png",
+        "frames/wave-07.png",
+        "frames/wave-08.png"
+      ],
+      "count": 8,
+      "canvas": {
+        "width": 207,
+        "height": 250
+      },
+      "frameMs": 150,
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        6,
+        5,
+        6,
+        7,
+        8,
+        1
+      ],
+      "durationOverrides": {
+        "1": 400
+      }
+    },
+    "idle": {
+      "files": [
+        "frames/wave-01.png"
+      ],
+      "count": 1,
+      "canvas": {
+        "width": 207,
+        "height": 250
+      },
+      "frameMs": 150,
+      "order": [
+        1
+      ],
+      "durationOverrides": {},
+      "blink": {
+        "base": "frames/idle-blink-base.png",
+        "file": "eye-closed.png",
+        "x": 49.084,
+        "y": 81.252,
+        "width": 72.719,
+        "height": 16.362
+      }
+    },
+    "walk": {
+      "files": [
+        "frames/walk-01.png",
+        "frames/walk-02.png",
+        "frames/walk-03.png",
+        "frames/walk-04.png",
+        "frames/walk-05.png",
+        "frames/walk-06.png",
+        "frames/walk-07.png",
+        "frames/walk-08.png",
+        "frames/walk-09.png",
+        "frames/walk-10.png",
+        "frames/walk-11.png",
+        "frames/walk-12.png",
+        "frames/walk-13.png",
+        "frames/walk-14.png",
+        "frames/walk-15.png",
+        "frames/walk-16.png"
+      ],
+      "count": 16,
+      "canvas": {
+        "width": 206,
+        "height": 284
+      },
+      "frameMs": 100,
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "durationOverrides": {}
+    }
+  },
+  "extraction": {
+    "wave": {
+      "source": "wave-8.png",
+      "sourceBounds": [
+        [
+          30,
+          149,
+          200,
+          380
+        ],
+        [
+          217,
+          174,
+          385,
+          380
+        ],
+        [
+          393,
+          149,
+          579,
+          380
+        ],
+        [
+          575,
+          139,
+          757,
+          381
+        ],
+        [
+          766,
+          143,
+          965,
+          379
+        ],
+        [
+          967,
+          148,
+          1150,
+          380
+        ],
+        [
+          1155,
+          149,
+          1341,
+          380
+        ],
+        [
+          1354,
+          145,
+          1519,
+          380
+        ]
+      ],
+      "footY": [
+        245,
+        245,
+        245,
+        245,
+        245,
+        245,
+        245,
+        245
+      ],
+      "coreAlphaThreshold": 32,
+      "discardAlphaAtMost": 8,
+      "alignment": "bottom-center"
+    },
+    "walk": {
+      "source": "walk-16.png",
+      "sourceBounds": [
+        [
+          13,
+          192,
+          211,
+          454
+        ],
+        [
+          207,
+          198,
+          400,
+          454
+        ],
+        [
+          389,
+          201,
+          586,
+          454
+        ],
+        [
+          575,
+          207,
+          773,
+          455
+        ],
+        [
+          767,
+          206,
+          961,
+          456
+        ],
+        [
+          959,
+          204,
+          1152,
+          456
+        ],
+        [
+          1145,
+          197,
+          1335,
+          456
+        ],
+        [
+          1338,
+          193,
+          1525,
+          455
+        ],
+        [
+          12,
+          590,
+          208,
+          849
+        ],
+        [
+          202,
+          591,
+          395,
+          850
+        ],
+        [
+          388,
+          583,
+          577,
+          851
+        ],
+        [
+          575,
+          576,
+          766,
+          852
+        ],
+        [
+          765,
+          562,
+          957,
+          832
+        ],
+        [
+          954,
+          582,
+          1143,
+          851
+        ],
+        [
+          1142,
+          593,
+          1330,
+          853
+        ],
+        [
+          1327,
+          596,
+          1517,
+          852
+        ]
+      ],
+      "footY": [
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279,
+        279
+      ],
+      "coreAlphaThreshold": 32,
+      "discardAlphaAtMost": 8,
+      "alignment": "bottom-center"
+    }
+  },
+  "eyes": {
+    "centers": [
+      [
+        61.81,
+        89.0
+      ],
+      [
+        108.85,
+        87.82
+      ]
+    ],
+    "bounds": [
+      [
+        57,
+        84,
+        68,
+        95
+      ],
+      [
+        104,
+        83,
+        115,
+        94
+      ]
+    ],
+    "detected": true
+  }
+}
