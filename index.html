@@ -122,6 +122,18 @@ mark{background:#f3e48a;color:var(--ink);padding:0 3px;border-radius:3px}
 #s7 .s7-compare-card h3{font-size:22px;margin-bottom:10px}
 #s7 .s7-compare-card dl{grid-template-columns:64px minmax(0,1fr);gap:6px 12px}
 #s7 .s7-compare-card .s7-compare-source{margin-top:8px;font-size:14px;color:var(--tea)}
+/* Page 3: larger summary text and a vertically centered, roomier table. */
+#s3 .shell{height:100%}
+#s3 .page-layout>.content{justify-content:center}
+#s3 .accordion{gap:18px}
+#s3 .summary-head,#s3 .row-toggle{grid-template-columns:168px minmax(0,.85fr) minmax(0,1.35fr)}
+#s3 .summary-head{font-size:20px;line-height:1.4}
+#s3 .row-toggle{min-height:96px;padding:14px 12px}
+#s3 .row-toggle>span{font-size:22px;line-height:1.4}
+#s3 .row-toggle>span:first-child{white-space:nowrap}
+#s3 .row-toggle>.summary-cue,#s3 .row-toggle>.summary-answer{overflow-wrap:break-word;text-wrap:pretty}
+#s3 .accordion:has(.row-toggle[aria-expanded="true"]){gap:10px}
+#s3 .accordion:has(.row-toggle[aria-expanded="true"]) .row-toggle{min-height:76px;padding-block:10px}
 </style>
 <link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
 <style>.footer .flipbook{position:absolute;left:4vw;bottom:4px;margin:0;pointer-events:none}.footer .footer-notes{padding-left:72px}.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
