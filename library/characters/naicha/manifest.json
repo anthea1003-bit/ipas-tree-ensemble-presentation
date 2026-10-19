@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "name": "naicha",
+  "label": "奶茶",
+  "canvas": {
+    "width": 620,
+    "height": 800
+  },
+  "notes": "插圖畫法 final3 零件；肩膀依軀幹 8%/92% × 12%；揮手 z=3，body=2，head=4。奶茶軀幹排除圍巾。",
+  "parts": {
+    "head-blank": {
+      "file": "head-blank.png",
+      "x": 20,
+      "y": 0,
+      "width": 450,
+      "height": 406.5274151436031,
+      "z": 4,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.65
+      },
+      "sourceBounds": [
+        79,
+        154,
+        383,
+        346
+      ]
+    },
+    "body": {
+      "file": "body.png",
+      "x": 68.07650501672241,
+      "y": 227.37709927589592,
+      "width": 501.81082001734177,
+      "height": 551.2503096742228,
+      "z": 2,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.1
+      },
+      "sourceBounds": [
+        521,
+        103,
+        406,
+        446
+      ]
+    },
+    "arm-l": {
+      "file": "arm-l.png",
+      "x": 91.86195652173913,
+      "y": 480.40438157491735,
+      "width": 90,
+      "height": 164.16,
+      "z": 3,
+      "pivot": {
+        "x": 0.24,
+        "y": 0.10964912280701754
+      },
+      "sourceBounds": [
+        1035,
+        285,
+        125,
+        228
+      ],
+      "rotation": 40
+    },
+    "arm-r": {
+      "file": "arm-r.png",
+      "x": 293.40760869565224,
+      "y": 477.40438157491735,
+      "width": 90,
+      "height": 169.5,
+      "z": 3,
+      "pivot": {
+        "x": 0.7,
+        "y": 0.12389380530973451
+      },
+      "sourceBounds": [
+        178,
+        677,
+        120,
+        226
+      ],
+      "rotation": -40
+    },
+    "arm-r-wave": {
+      "file": "arm-r-wave.png",
+      "x": 318.3535546415982,
+      "y": 440.1341113046471,
+      "width": 220,
+      "height": 183.13513513513516,
+      "z": 3,
+      "pivot": {
+        "x": 0.17297297297297298,
+        "y": 0.3181818181818182
+      },
+      "sourceBounds": [
+        570,
+        670,
+        185,
+        154
+      ],
+      "rotation": -20,
+      "palm": {
+        "x": 0.7405405405405405,
+        "y": 0.37012987012987014
+      },
+      "shoulderRadius": 28.54054054054054
+    },
+    "eye-open": {
+      "file": "eye-open.png",
+      "x": 155,
+      "y": 231.17583969769046,
+      "width": 180,
+      "height": 49.18604651162791,
+      "z": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "sourceBounds": [
+        972,
+        759,
+        172,
+        47
+      ]
+    },
+    "eye-closed": {
+      "file": "eye-closed.png",
+      "x": 155,
+      "y": 252.7261298390006,
+      "width": 180,
+      "height": 34.054054054054056,
+      "z": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "sourceBounds": [
+        169,
+        1060,
+        185,
+        35
+      ]
+    },
+    "mouth-smile": {
+      "file": "mouth-smile.png",
+      "x": 221,
+      "y": 284.072006408179,
+      "width": 49,
+      "height": 23.333333333333332,
+      "z": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "sourceBounds": [
+        618,
+        1067,
+        63,
+        30
+      ]
+    },
+    "mouth-o": {
+      "file": "mouth-o.png",
+      "x": 232,
+      "y": 277.2150959086712,
+      "width": 27,
+      "height": 34.90243902439025,
+      "z": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "sourceBounds": [
+        1012,
+        1058,
+        41,
+        53
+      ]
+    }
+  },
+  "walkFrames": [
+    "walk-1.png",
+    "walk-2.png",
+    "walk-3.png",
+    "walk-4.png"
+  ],
+  "walkCanvas": {
+    "width": 303,
+    "height": 336
+  },
+  "walkBlinkFrames": [
+    "walk-blink-1.png",
+    "walk-blink-2.png",
+    "walk-blink-3.png",
+    "walk-blink-4.png"
+  ],
+  "torsoBounds": {
+    "x": 90.32427536231884,
+    "y": 462.2146751460805,
+    "width": 289.2210144927536,
+    "height": 301.5808869069739
+  },
+  "torsoSourceBounds": [
+    539,
+    293,
+    234,
+    244
+  ],
+  "defaultMouth": "mouth-smile"
+}

@@ -71,6 +71,8 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{html,body{height:auto;overflow:visible}.topbar,.edge,.progress,.back-link,.footer{display:none}.slide{position:relative;inset:auto;visibility:visible!important;opacity:1;transform:none;overflow:visible;break-after:page}.takeaways p{opacity:1;transform:none}.shell{min-height:0}}
 </style>
+<link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
+<style>.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
 </head>
 <body>
 <svg class="svg-defs" aria-hidden="true"><defs>
@@ -83,7 +85,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <section class="slide cover is-active" id="s1" data-title="你想要的是一棵樹，還是一片森林？" aria-labelledby="s1-title" aria-hidden="false">
 <div class="shell"><div class="hero">
 <div><h1 id="s1-title">你想要的是一棵樹，還是一片森林？</h1><p class="muted">樹模型與集成學習 × 可解釋性｜iPAS AI 應用規劃師中級 科目三</p></div>
-<div class="score-art"><div class="cover-entrance"><div class="cover-float"><div class="cover-sway"><img class="art" src="assets/p03.png" width="595" height="457" alt="三個小人舉著樹苗"></div><span class="cover-star" aria-hidden="true"></span><span class="cover-star" aria-hidden="true"></span><span class="cover-star" aria-hidden="true"></span></div></div><p class="reading">一棵樹太會背，一片森林才穩，準了還要能解釋。</p></div>
+<div class="score-art"><div class="cover-entrance"><div class="cover-float"><div class="cover-sway"><div class="tea-duo"><tea-chara name="xiaoye" action="idle" size="300" data-wave-on-enter></tea-chara><tea-chara name="naicha" action="idle" size="290" flip></tea-chara></div></div><span class="cover-star" aria-hidden="true"></span><span class="cover-star" aria-hidden="true"></span><span class="cover-star" aria-hidden="true"></span></div></div><p class="reading">一棵樹太會背，一片森林才穩，準了還要能解釋。</p></div>
 </div></div></section>
 <section class="slide" id="s2" data-title="你想要的是一棵樹，還是一片森林？" aria-labelledby="s2-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s2-title">你想要的是一棵樹，還是一片森林？</h2><img class="art" src="assets/p01.png" width="657" height="445" alt=""></header>
@@ -193,7 +195,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <section class="slide" id="s8" data-title="3 句話帶走" aria-labelledby="s8-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s8-title">3 句話帶走</h2></header>
 <div class="page-layout"><div class="content"><div class="takeaways"><p>Bagging 降變異，Boosting 降偏差</p><p>XGBoost ＝ 正則化 ＋ 缺失值自動處理 ＋ 並行化</p><p>要稽核整體看特徵重要性，要解釋單筆用 SHAP</p></div></div>
-<img class="art" src="assets/p07.png" width="526" height="331" alt="">
+<div class="tea-duo"><tea-chara name="naicha" action="float" size="210"></tea-chara><tea-chara name="xiaoye" action="idle" size="200" flip data-wave-on-enter></tea-chara></div>
 </div>
 </div></section>
 <section class="slide" id="s9" data-title="📖 附錄 A：學習指引精華" aria-labelledby="s9-title" aria-hidden="true" inert>
@@ -356,6 +358,11 @@ addEventListener('touchcancel',resetTouchGesture,{passive:true});
 // Series zoom behavior copied from ch5-presentation.
 function fitDeck(){const w=innerWidth,hgt=innerHeight;let s=1;if(w>900&&!matchMedia('print').matches){s=Math.min(w/1280,hgt>850?hgt/870:hgt/800);s=Math.max(1,Math.min(s,2.2));}document.body.style.zoom=s===1?'':String(Math.round(s*1000)/1000);}
 addEventListener('resize',fitDeck);fitDeck();showSlide(0);
+</script>
+<script type="module">
+const waveOnEnter=slide=>slide.querySelectorAll('tea-chara[data-wave-on-enter]').forEach(c=>{const go=()=>c.play&&c.play('wave');c.dataset.state==='ready'?go():c.addEventListener('tea-ready',go,{once:true});});
+new MutationObserver(list=>list.forEach(m=>{if(m.target.classList.contains('is-active'))waveOnEnter(m.target);})).observe(document.querySelector('main.deck'),{attributes:true,attributeFilter:['class'],subtree:true});
+document.querySelectorAll('section.slide.is-active').forEach(waveOnEnter);
 </script>
 </body>
 </html>

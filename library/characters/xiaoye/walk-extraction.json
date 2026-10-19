@@ -1,0 +1,120 @@
+{
+  "source": "walk-strip-final3.png",
+  "source_sha256": "017835cdd94ddc291f7279d6f63769042ec09afac6130d0463c896e9d89cd4f2",
+  "canvas": {
+    "width": 323,
+    "height": 538
+  },
+  "cleanup": {
+    "removed_low_alpha_pixels": 0,
+    "decontaminated_white_pixels": 0
+  },
+  "alpha_threshold": 0,
+  "core_threshold": 8,
+  "discarded_remote_pixels": 741,
+  "frames": [
+    {
+      "file": "walk-1.png",
+      "sourceBounds": [
+        154,
+        107,
+        313,
+        535
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "size": [
+        323,
+        538
+      ],
+      "coreBounds": [
+        167,
+        110,
+        463,
+        634
+      ],
+      "groundY": 527
+    },
+    {
+      "file": "walk-2.png",
+      "sourceBounds": [
+        688,
+        108,
+        304,
+        535
+      ],
+      "offset": [
+        12,
+        0
+      ],
+      "size": [
+        323,
+        538
+      ],
+      "coreBounds": [
+        690,
+        111,
+        984,
+        635
+      ],
+      "groundY": 527
+    },
+    {
+      "file": "walk-3.png",
+      "sourceBounds": [
+        1202,
+        111,
+        302,
+        533
+      ],
+      "offset": [
+        11,
+        3
+      ],
+      "size": [
+        323,
+        538
+      ],
+      "coreBounds": [
+        1205,
+        114,
+        1500,
+        635
+      ],
+      "groundY": 527
+    },
+    {
+      "file": "walk-4.png",
+      "sourceBounds": [
+        1743,
+        112,
+        295,
+        534
+      ],
+      "offset": [
+        14,
+        4
+      ],
+      "size": [
+        323,
+        538
+      ],
+      "coreBounds": [
+        1747,
+        114,
+        2033,
+        635
+      ],
+      "groundY": 527
+    }
+  ],
+  "blinkFrames": [
+    "walk-blink-1.png",
+    "walk-blink-2.png",
+    "walk-blink-3.png",
+    "walk-blink-4.png"
+  ],
+  "blink_note": "每格 1 隻眼：以同格眼睛上方紋理覆蓋，再貼入原 eye-closed 眼皮；原圖不改。"
+}

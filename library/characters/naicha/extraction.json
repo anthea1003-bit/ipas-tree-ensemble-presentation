@@ -1,0 +1,128 @@
+{
+  "source": "sheet-final3.png",
+  "source_sha256": "90c59893692e8ebb51c93883204faa2dbb7ec9862bcb8eebdad80e0d731bca57",
+  "sheet_size": [
+    1254,
+    1254
+  ],
+  "core_threshold": 8,
+  "alpha_threshold": 0,
+  "cleanup": {
+    "removed_low_alpha_pixels": 0,
+    "decontaminated_white_pixels": 0
+  },
+  "discarded_isolated_pixels": 6581,
+  "parts": {
+    "head-blank": {
+      "file": "head-blank.png",
+      "source_bounds": [
+        79,
+        154,
+        383,
+        346
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 619
+    },
+    "body": {
+      "file": "body.png",
+      "source_bounds": [
+        521,
+        103,
+        406,
+        446
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 1279
+    },
+    "arm-l": {
+      "file": "arm-l.png",
+      "source_bounds": [
+        1035,
+        285,
+        125,
+        228
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 271
+    },
+    "arm-r": {
+      "file": "arm-r.png",
+      "source_bounds": [
+        178,
+        677,
+        120,
+        226
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 299
+    },
+    "arm-r-wave": {
+      "file": "arm-r-wave.png",
+      "source_bounds": [
+        570,
+        670,
+        185,
+        154
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 227
+    },
+    "eye-open": {
+      "file": "eye-open.png",
+      "source_bounds": [
+        972,
+        759,
+        172,
+        47
+      ],
+      "component_count": 2,
+      "transparent_hole_pixels": 128
+    },
+    "eye-closed": {
+      "file": "eye-closed.png",
+      "source_bounds": [
+        169,
+        1060,
+        185,
+        35
+      ],
+      "component_count": 2,
+      "transparent_hole_pixels": 137
+    },
+    "mouth-smile": {
+      "file": "mouth-smile.png",
+      "source_bounds": [
+        618,
+        1067,
+        63,
+        30
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 68
+    },
+    "mouth-o": {
+      "file": "mouth-o.png",
+      "source_bounds": [
+        1012,
+        1058,
+        41,
+        53
+      ],
+      "component_count": 1,
+      "transparent_hole_pixels": 43
+    }
+  },
+  "missing": [],
+  "issues": [
+    "head-blank: 有 619 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "body: 有 1279 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-l: 有 271 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-r: 有 299 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-r-wave: 有 227 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "eye-open: 有 128 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "eye-closed: 有 137 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "mouth-smile: 有 68 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "mouth-o: 有 43 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。"
+  ]
+}

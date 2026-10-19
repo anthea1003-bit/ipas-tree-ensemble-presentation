@@ -1,0 +1,39 @@
+/* This file is linked both by the page (initial sizing) and inside the shadow root. */
+tea-chara { display: inline-block; vertical-align: bottom; }
+:host { display: inline-block; position: relative; vertical-align: bottom; contain: style; }
+:host .stage, :host .travel, :host .mirror, :host .float, :host .breath, :host .rig { position: relative; width: 100%; height: 100%; }
+:host .stage { isolation: isolate; }
+:host .part { position: absolute; }
+:host .part img { width: 100%; height: 100%; display: block; user-select: none; }
+/* Four aligned frames advance every .15s; both expression tracks stay in phase. */
+:host .walk-window { position: absolute; inset: 0; overflow: hidden; }
+:host .walk-track { position: absolute; inset: 0 auto 0 0; display: flex; width: 400%; height: 100%; }
+:host .walk-track img { display: block; width: 25%; height: 100%; flex: 0 0 25%; }
+:host .moving.action-walk .walk-track { animation: tea-walk .6s steps(4, end) infinite; }
+:host .walk-track.closed { opacity: 0; }
+:host .blinking .walk-track.closed { opacity: 1; }
+:host .blinking .walk-track.open { opacity: 0; }
+:host .action-walk .mirror, :host([flip]) .action-walk .mirror { transform: scaleX(var(--walk-facing, 1)); }
+:host .moving.action-walk .breath { animation: none; }
+@keyframes tea-walk { to { transform: translateX(-100%); } }
+:host [hidden] { display: none !important; }
+:host([flip]) .mirror { transform: scaleX(-1); }
+:host .moving .breath { animation: tea-breathe 2.4s ease-in-out infinite; }
+:host .moving.action-float .float { animation: tea-float 3s ease-in-out infinite; }
+:host .action-wave .part[data-part="arm-r-wave"] { animation: tea-wave .6s ease-in-out 3; }
+:host([loop]) .action-wave .part[data-part="arm-r-wave"] { animation-iteration-count: infinite; }
+:host .shadow { display: none; position: absolute; width: 44%; height: 4%; left: 28%; bottom: -4%; background: #878b8760; border-radius: 50%; filter: blur(2px); }
+:host .moving.action-float .shadow { display: block; animation: tea-shadow 3s ease-in-out infinite; }
+:host .pivot { display: none; position: absolute; z-index: 20; width: 7px; height: 7px; border: 1px solid white; border-radius: 50%; background: #d73f68; box-shadow: 0 0 0 1px #552638; transform: translate(-50%, -50%); pointer-events: none; }
+:host([show-pivots]) .pivot { display: block; }
+:host .wave-guide { display: none; position: absolute; z-index: 21; width: 38px; border-top: 1px dashed #d73f68; pointer-events: none; }
+:host .wave-guide i { position: absolute; left: 0; top: -1px; width: 38px; border-top: 2px solid #178b96; transform-origin: 0 0; transform: rotate(var(--base-angle)); }
+:host .wave-guide b { position: absolute; left: 6px; top: 6px; white-space: nowrap; font: 10px sans-serif; color: #125460; background: #fff9e9e8; padding: 2px; }
+:host([show-pivots]) .wave-guide { display: block; }
+@keyframes tea-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes tea-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes tea-shadow { 0%, 100% { transform: scaleX(1); opacity: .65; } 50% { transform: scaleX(.72); opacity: .35; } }
+@keyframes tea-wave { 0%, 100% { transform: rotate(var(--base-angle)); } 25% { transform: rotate(calc(var(--base-angle) + 15deg)); } 75% { transform: rotate(calc(var(--base-angle) - 15deg)); } }
+@media (prefers-reduced-motion: reduce) {
+:host .moving .breath, :host .moving .float, :host .action-wave .part, :host .shadow, :host .walk-track { animation: none !important; }
+}
