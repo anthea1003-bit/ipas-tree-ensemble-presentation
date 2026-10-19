@@ -106,6 +106,21 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 mark{background:#f3e48a;color:var(--ink);padding:0 3px;border-radius:3px}
 /* Page 3: keep all summary answers visible in every quiz and accordion state. */
 #s3 .summary-answer{display:block!important}
+/* Page 2: center the family tree in the space below the source note. */
+#s2 .tree-family{margin:auto}
+#s2 .family-root{padding:14px 18px;font-size:26px}
+#s2 .family-trunk{height:92px}
+#s2 .family-branch{padding:34px 18px 0}
+#s2 .family-branch::before{height:28px}
+#s2 .family-branch h3{margin-bottom:14px;font-size:24px}
+#s2 .family-node{padding:18px 12px;font-size:26px}
+#s2 .family-benefit{margin-top:16px;padding:5px 22px;font-size:22px}
+/* Page 7: distribute the three blocks across the available height in both modes. */
+#s7 .s7-content{justify-content:space-evenly;gap:24px}
+#s7 .s7-content>.route{margin-bottom:0}
+#s7 .s7-compare-card{padding:14px 16px;font-size:19px}
+#s7 .s7-compare-card h3{font-size:22px;margin-bottom:10px}
+#s7 .s7-compare-card dl{grid-template-columns:64px minmax(0,1fr);gap:6px 12px}
 </style>
 <link rel="stylesheet" href="library/tea-characters.css"><script type="module" src="library/tea-characters.js"></script>
 <style>.footer .flipbook{position:absolute;left:4vw;bottom:4px;margin:0;pointer-events:none}.footer .footer-notes{padding-left:72px}.tea-duo{display:flex;justify-content:center;align-items:flex-end;gap:28px}.cover .tea-duo{height:min(45vh,360px)}#s8 .tea-duo{position:absolute;right:0;top:50%;width:23vw;transform:translateY(-50%);gap:16px}@media(max-width:600px){.cover .tea-duo{height:min(32vh,240px)}}</style>
