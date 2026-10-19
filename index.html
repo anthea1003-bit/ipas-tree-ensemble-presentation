@@ -161,7 +161,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">C. 對模型 A 降低樹深度、提高葉節點最小樣本限制，並調整正則化強度，使用交叉驗證評估改善效果。</button>
 <button type="button" class="option" aria-pressed="false">D. 將模型 A 改用更小的學習率，同時大幅增加迭代次數，因為較小學習率可保證降低模型變異。</button>
 </div><img class="art" src="assets/p04.png" width="442" height="699" alt=""></div>
-<div class="feedback" hidden role="status"><p class="result">正解 C</p><div class="steps"><p>1. 看診斷：訓練 4.2、驗證 12.8，差距大；±3.6 代表 Fold 之間跳動大 → 高變異（過擬合）</p><p>2. 高變異要做的事：讓模型「少背一點」＝降複雜度</p><p>3. 樹模型降複雜度的三個旋鈕：降 max_depth、提高 min_samples_leaf、加正則化；調完用交叉驗證確認</p></div><div class="option-reasons"><p>A「必然優於」是絕對化字眼；題目要求保留非線性，線性迴歸做不到</p><p>B 加深、加迭代＝更會背，方向相反</p><p>C 正解</p><p>D 學習率變小只是每步走小一點，不「保證」降變異；而且學習率縮小通常要配合增加迭代次數</p></div></div>
+<div class="feedback" hidden role="status"><p class="result">正解 C</p><div class="steps"><p>1. 看診斷：訓練 4.2、驗證 12.8，差距大；±3.6 代表 Fold 之間跳動大 → 高變異（過擬合）</p><p>2. 高變異要做的事：讓模型「少背一點」＝降複雜度</p><p>3. 樹模型降複雜度的三個旋鈕：降樹深度（max_depth）、提高葉節點最小樣本、加正則化；調完用交叉驗證確認</p></div><div class="option-reasons"><p>A「必然優於」是絕對化字眼；題目要求保留非線性，線性迴歸做不到</p><p>B 加深、加迭代＝更會背，方向相反</p><p>C 正解</p><p>D 學習率變小只是每步走小一點，不「保證」降變異；而且學習率縮小通常要配合增加迭代次數</p></div></div>
 </article></div>
 </div>
 </div></section>
@@ -174,7 +174,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 <button type="button" class="option" aria-pressed="false">C. Boosting 不能處理分類問題</button>
 <button type="button" class="option" aria-pressed="false">D. Random Forest 一定比 XGBoost 準確</button>
 </div><img class="art" src="assets/p05.png" width="765" height="306" alt=""></div>
-<div class="feedback" hidden role="status"><p class="result">正解 B</p><table class=""><thead><tr><th scope="col"></th><th scope="col">Bagging（隨機森林）</th><th scope="col">Boosting（GBDT／XGBoost／LightGBM）</th></tr></thead><tbody><tr><td>怎麼訓練</td><td>平行，各樹獨立</td><td>序列，每棵修正目前累積結果的殘差</td></tr><tr><td>主要降什麼</td><td>變異（Variance）</td><td>偏差（Bias）</td></tr><tr><td>最後怎麼合</td><td>投票／平均</td><td>加權相加</td></tr><tr><td>誰比較準</td><td>看資料、看驗證結果，沒有一定</td><td>同左</td></tr></tbody></table><p>A 兩者都是多棵樹，不是單棵</p><p>B 正解，一句話同時抓到兩者差異</p><p>C AdaBoost、XGBoost 都能做分類</p><p>D「一定」是警訊；誰準要用驗證結果判斷</p></div>
+<div class="feedback" hidden role="status"><p class="result">正解 B</p><table class=""><thead><tr><th scope="col"></th><th scope="col">Bagging（隨機森林）</th><th scope="col">Boosting（GBDT／XGBoost／LightGBM）</th></tr></thead><tbody><tr><td>怎麼訓練</td><td>平行，各樹獨立</td><td>序列，每棵修正目前累積結果的殘差</td></tr><tr><td>主要降什麼</td><td>變異（Variance）</td><td>偏差（Bias）</td></tr><tr><td>最後怎麼合</td><td>投票／平均</td><td>加權相加</td></tr><tr><td>誰比較準</td><td>看資料、看驗證結果，沒有一定</td><td>同左</td></tr></tbody></table><p>A 兩者都是多棵樹，不是單棵</p><p>B 正解，一句話同時抓到兩者差異</p><p>C Gradient Boosting、XGBoost 都能做分類</p><p>D「一定」是警訊；誰準要用驗證結果判斷</p></div>
 </article></div>
 </div>
 </div></section>
@@ -200,58 +200,7 @@ table{width:100%;border-collapse:collapse;font-size:17px;line-height:1.4}th,td{t
 </div></section>
 <section class="slide" id="s9" data-title="📖 附錄 A：學習指引精華" aria-labelledby="s9-title" aria-hidden="true" inert>
 <div class="shell"><header class="section-head"><h2 id="s9-title">📖 附錄 A：學習指引精華</h2><span class="home-tag">📖 回家看</span><button class="back-link" type="button" data-goto="6">回到正文</button></header>
-<div class="content"><div class="appendix-grid"><div><h3>決策樹與隨機森林</h3><table class=""><thead><tr><th scope="col"></th><th scope="col">決策樹（Decision Tree）</th><th scope="col">隨機森林（Random Forest）</th></tr></thead><tbody><tr><td>結構</td><td>一棵樹，遞迴分裂</td><td>多棵樹，Bootstrap 抽樣＋隨機選特徵</td></tr><tr><td>解釋性</td><td>高，規則看得到</td><td>較低，但有特徵重要性</td></tr><tr><td>過擬合</td><td>容易</td><td>抗過擬合能力強</td></tr><tr><td>防過擬合</td><td>剪枝（max_depth、min_samples_leaf）</td><td>多數決／平均</td></tr><tr><td>要不要特徵縮放</td><td>不需要</td><td>不需要</td></tr></tbody></table></div><div><h3>Bagging 與 Boosting</h3><table class=""><thead><tr><th scope="col"></th><th scope="col">Bagging</th><th scope="col">Boosting</th></tr></thead><tbody><tr><td>訓練方式</td><td>平行，各模型獨立</td><td>序列，修正前一輪錯誤</td></tr><tr><td>重點降低</td><td>變異（Variance）</td><td>偏差（Bias）</td></tr><tr><td>代表</td><td>Random Forest</td><td>Gradient Boosting、XGBoost、LightGBM</td></tr><tr><td>整合方式</td><td>投票（分類）／平均（迴歸）</td><td>加權整合</td></tr></tbody></table></div></div><div class="reference-notes"><p><strong>決策樹分裂指標</strong>：基尼不純度（Gini Impurity），值越小越純；資訊增益（Information Gain），衡量熵（Entropy）下降；分類誤差（Classification Error）。</p><p><strong>XGBoost 相較傳統梯度提升決策樹（GBDT）</strong>：Block 結構加速、自動學習缺失值走向、L1／L2 正則化（Regularization）。</p><p><strong>LightGBM</strong>：葉子式生長（Leaf-wise），通常更快，但較易過擬合。</p></div></div>
-</div></section>
-<section class="slide" id="s10" data-title="📖 附錄 B：Python 練習題 ①②" aria-labelledby="s10-title" aria-hidden="true" inert>
-<div class="shell"><header class="section-head"><h2 id="s10-title">📖 附錄 B：Python 練習題 ①②</h2><span class="home-tag">📖 回家看</span><button class="back-link" type="button" data-goto="5">回到正文</button></header>
-<div class="content"><div class="appendix-grid"><div><h3>① 決策樹參數</h3><article class="quiz" data-qid="appendix-1" data-answer="B">
-<div class="verbatim"><div class="question"><p>當使用決策樹（DecisionTreeClassifier）進行訓練時，若宣告模型時什麼參數都不加，會產生什麼後果？又該由什麼參數去修剪？</p>
-<pre><code>from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier()</code></pre></div>
-<div class="options"><button type="button" class="option" aria-pressed="false">A. 會導致欠擬合（Underfitting），應引入 min_depth=10 加速其生長。</button>
-<button type="button" class="option" aria-pressed="false">B. 會導致過度擬合（Overfitting），應透過規定 max_depth=5 來強行限制生長。</button>
-<button type="button" class="option" aria-pressed="false">C. 會導致梯度消失爆裂當機，必須引入標準化才能長樹。</button>
-<button type="button" class="option" aria-pressed="false">D. 決策樹本來就是越深越聰明，根本不用管它。</button>
-</div></div>
-<div class="feedback" hidden role="status"><p class="result">正解 B</p><p>不設 max_depth 預設是 None，容易背下訓練集；min_depth 是虛構參數。樹模型不需要特徵縮放。</p></div>
-</article></div><div><h3>② 學習率與迭代次數</h3><article class="quiz" data-qid="appendix-2" data-answer="C">
-<div class="verbatim"><div class="question"><p>在進行 GradientBoosting 或 XGBoost 系列集成模型的優化調整時，若為了避免過度擬合，強制調小了每次迭代學習步伐 learning_rate，另一個參數該做何對應變動以維持模型動能？</p>
-<pre><code>from sklearn.ensemble import GradientBoostingClassifier
-# 若從 learning_rate=0.1 縮減十倍至 0.01，
-# 右側參數 n_estimators 原本為 100，最好該調整為？
-model = GradientBoostingClassifier(learning_rate=0.01,
-                                   n_estimators=_________)</code></pre></div>
-<div class="options"><button type="button" class="option" aria-pressed="false">A. 應該調降為 10，減少步數以防時間過長。</button>
-<button type="button" class="option" aria-pressed="false">B. 應該維持 100 不變，兩參數無關連。</button>
-<button type="button" class="option" aria-pressed="false">C. 應該等比例放長調高為 1000 左右，讓較精細的步伐有時間走完收斂全程。</button>
-<button type="button" class="option" aria-pressed="false">D. 改為 -1 讓它跑到底。</button>
-</div></div>
-<div class="feedback" hidden role="status"><p class="result">正解 C</p><p>學習率縮小，通常要更多棵樹；1000 是本題配對方向，最佳數量仍須驗證，並非收斂或降變異保證。</p></div>
-</article></div></div></div>
-</div></section>
-<section class="slide" id="s11" data-title="📖 附錄 C：Python 練習題 ③＋隨機森林的兩種隨機" aria-labelledby="s11-title" aria-hidden="true" inert>
-<div class="shell"><header class="section-head"><h2 id="s11-title">📖 附錄 C：Python 練習題 ③＋隨機森林的兩種隨機</h2><span class="home-tag">📖 回家看</span><button class="back-link" type="button" data-goto="7">回到正文</button></header>
-<div class="content"><div class="appendix-grid"><div><h3>③ 特徵重要性</h3><article class="quiz" data-qid="appendix-3" data-answer="C">
-<div class="verbatim"><div class="question"><p>決策樹與隨機森林（Random Forest）經過 fit() 之後，可以告訴你哪些特徵是做出判斷的最大關鍵。在腳本中，要去哪裡提取這個「特徵重要性」陣列？</p>
-<pre><code>from sklearn.ensemble import RandomForestClassifier
-rf = RandomForestClassifier()
-rf.fit(X_train, y_train)
-importances = rf.___________________________</code></pre></div>
-<div class="options"><button type="button" class="option" aria-pressed="false">A. extract_weights()</button>
-<button type="button" class="option" aria-pressed="false">B. important_features_</button>
-<button type="button" class="option" aria-pressed="false">C. feature_importances_</button>
-<button type="button" class="option" aria-pressed="false">D. coef_</button>
-</div></div>
-<div class="feedback" hidden role="status"><p class="result">正解 C</p><p>feature_importances_ 依分裂降低的不純度加總；coef_ 屬線性模型。XGBoost、LightGBM 的重要性定義可選。</p></div>
-</article></div><div><h3>④ 隨機森林的兩種隨機</h3><article class="quiz" data-qid="appendix-4" data-answer="A">
-<div class="verbatim"><div class="question"><p>在隨機森林中，隨機性來源於哪兩個方面？</p></div>
-<div class="options"><button type="button" class="option" aria-pressed="false">A. 隨機選擇樣本和隨機選擇特徵</button>
-<button type="button" class="option" aria-pressed="false">B. 隨機初始化參數和隨機選擇樣本</button>
-<button type="button" class="option" aria-pressed="false">C. 隨機選擇特徵和隨機生成目標值</button>
-<button type="button" class="option" aria-pressed="false">D. 隨機選擇樣本和隨機生成噪聲</button>
-</div></div>
-<div class="feedback" hidden role="status"><p class="result">正解 A</p><p>Bootstrap 抽樣選樣本，每次分裂只看部分特徵。</p></div>
-</article></div></div></div>
+<div class="content"><div class="appendix-grid"><div><h3>決策樹與隨機森林</h3><table class=""><thead><tr><th scope="col"></th><th scope="col">決策樹（Decision Tree）</th><th scope="col">隨機森林（Random Forest）</th></tr></thead><tbody><tr><td>結構</td><td>一棵樹，遞迴分裂</td><td>多棵樹，Bootstrap 抽樣＋隨機選特徵</td></tr><tr><td>解釋性</td><td>高，規則看得到</td><td>較低，但有特徵重要性</td></tr><tr><td>過擬合</td><td>容易</td><td>抗過擬合能力強</td></tr><tr><td>防過擬合</td><td>剪枝（樹深度 max_depth、葉節點最小樣本）</td><td>多數決／平均</td></tr><tr><td>要不要特徵縮放</td><td>不需要</td><td>不需要</td></tr></tbody></table></div><div><h3>Bagging 與 Boosting</h3><table class=""><thead><tr><th scope="col"></th><th scope="col">Bagging</th><th scope="col">Boosting</th></tr></thead><tbody><tr><td>訓練方式</td><td>平行，各模型獨立</td><td>序列，修正前一輪錯誤</td></tr><tr><td>重點降低</td><td>變異（Variance）</td><td>偏差（Bias）</td></tr><tr><td>代表</td><td>Random Forest</td><td>Gradient Boosting、XGBoost、LightGBM</td></tr><tr><td>整合方式</td><td>投票（分類）／平均（迴歸）</td><td>加權整合</td></tr></tbody></table></div></div><div class="reference-notes"><p><strong>決策樹分裂指標</strong>：基尼不純度（Gini Impurity），值越小越純；資訊增益（Information Gain），衡量熵（Entropy）下降；分類誤差（Classification Error）。</p><p><strong>XGBoost 相較傳統梯度提升決策樹（GBDT）</strong>：Block 結構加速、自動學習缺失值走向、L1／L2 正則化（Regularization）。</p><p><strong>LightGBM</strong>：葉子式生長（Leaf-wise），通常更快，但較易過擬合。</p></div></div>
 </div></section>
 </main>
 <button class="edge" id="prev" type="button" aria-label="上一張"></button>
@@ -268,7 +217,7 @@ importances = rf.___________________________</code></pre></div>
 <tea-chara id="flipbook" class="flipbook" name="xiaoye" mode="flipbook" frames="walk" frame="1" size="58" breathe aria-hidden="true"></tea-chara>
 <div class="controls">
 <button id="mode-toggle" class="mode-toggle" type="button" aria-pressed="false" hidden>切換為解析模式</button>
-<span id="page-number" class="page-number" aria-label="頁碼" aria-live="polite">1 / 11</span>
+<span id="page-number" class="page-number" aria-label="頁碼" aria-live="polite">1 / 9</span>
 <button id="prev-button" type="button" aria-label="上一頁"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
 <button id="next-button" type="button" aria-label="下一頁"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
 </div>
