@@ -116,15 +116,17 @@ export class TeaChara extends HTMLElement {
       const images = [];
       const directory = new URL(`${name}/`, BASE);
       for (const [key, part] of Object.entries(manifest.parts)) {
+        // Only the waving arm has an authored baseline; resting parts stay neutral.
+        const baseAngle = key === 'arm-r-wave' && Number.isFinite(part.rotation) ? part.rotation : 0;
         const element = document.createElement('div');
         element.className = 'part'; element.dataset.part = key;
         Object.assign(element.style, {
           left: `${part.x / manifest.canvas.width * 100}%`, top: `${part.y / manifest.canvas.height * 100}%`,
           width: `${part.width / manifest.canvas.width * 100}%`, height: `${part.height / manifest.canvas.height * 100}%`,
-          zIndex: String(part.z), transform: `rotate(${Number.isFinite(part.rotation) ? part.rotation : 0}deg)`, transformOrigin: `${part.pivot.x * 100}% ${part.pivot.y * 100}%`,
+          zIndex: String(part.z), transform: `rotate(${baseAngle}deg)`, transformOrigin: `${part.pivot.x * 100}% ${part.pivot.y * 100}%`,
         });
         const img = new Image(); img.alt = ''; img.draggable = false;
-        element.style.setProperty('--base-angle', `${part.rotation || 0}deg`);
+        if (key === 'arm-r-wave') element.style.setProperty('--base-angle', `${baseAngle}deg`);
         img.src = new URL(part.file, directory).href;
         element.append(img); images.push(img);
         if (key.startsWith('arm-')) {
@@ -137,9 +139,9 @@ export class TeaChara extends HTMLElement {
             const guide = document.createElement('span'); guide.className = 'wave-guide';
             guide.dataset.guide = key;
             guide.style.left = pivot.style.left; guide.style.top = pivot.style.top;
-            guide.style.setProperty('--base-angle', `${part.rotation || 0}deg`);
+            guide.style.setProperty('--base-angle', `${baseAngle}deg`);
             const ray = document.createElement('i');
-            const label = document.createElement('b'); label.textContent = `基準 ${part.rotation || 0}°`;
+            const label = document.createElement('b'); label.textContent = `基準 ${baseAngle}°`;
             guide.append(ray, label); rig.append(guide);
           }
         }

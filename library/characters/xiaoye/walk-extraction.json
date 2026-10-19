@@ -1,9 +1,9 @@
 {
-  "source": "walk-strip-final3.png",
-  "source_sha256": "017835cdd94ddc291f7279d6f63769042ec09afac6130d0463c896e9d89cd4f2",
+  "source": "walk-strip-final4.png",
+  "source_sha256": "b8bb862f951622ee452f4e498776611d193c539cd55524c85fa9be8220fc779d",
   "canvas": {
-    "width": 323,
-    "height": 538
+    "width": 378,
+    "height": 619
   },
   "cleanup": {
     "removed_low_alpha_pixels": 0,
@@ -11,103 +11,103 @@
   },
   "alpha_threshold": 0,
   "core_threshold": 8,
-  "discarded_remote_pixels": 741,
+  "discarded_remote_pixels": 2352,
   "frames": [
     {
       "file": "walk-1.png",
       "sourceBounds": [
-        154,
-        107,
-        313,
-        535
+        97,
+        77,
+        376,
+        599
       ],
       "offset": [
         0,
-        0
+        20
       ],
       "size": [
-        323,
-        538
+        378,
+        619
       ],
       "coreBounds": [
-        167,
-        110,
-        463,
-        634
+        118,
+        89,
+        453,
+        650
       ],
-      "groundY": 527
+      "groundY": 593
     },
     {
       "file": "walk-2.png",
       "sourceBounds": [
-        688,
-        108,
-        304,
-        535
+        661,
+        62,
+        353,
+        612
       ],
       "offset": [
-        12,
+        10,
         0
       ],
       "size": [
-        323,
-        538
+        378,
+        619
       ],
       "coreBounds": [
-        690,
-        111,
-        984,
-        635
+        688,
+        87,
+        993,
+        655
       ],
-      "groundY": 527
+      "groundY": 593
     },
     {
       "file": "walk-3.png",
       "sourceBounds": [
-        1202,
-        111,
-        302,
-        533
+        1175,
+        87,
+        345,
+        589
       ],
       "offset": [
-        11,
-        3
+        10,
+        26
       ],
       "size": [
-        323,
-        538
+        378,
+        619
       ],
       "coreBounds": [
-        1205,
-        114,
-        1500,
-        635
+        1199,
+        90,
+        1508,
+        654
       ],
-      "groundY": 527
+      "groundY": 593
     },
     {
       "file": "walk-4.png",
       "sourceBounds": [
-        1743,
-        112,
-        295,
-        534
+        1757,
+        71,
+        335,
+        601
       ],
       "offset": [
-        14,
-        4
+        26,
+        10
       ],
       "size": [
-        323,
-        538
+        378,
+        619
       ],
       "coreBounds": [
-        1747,
-        114,
-        2033,
-        635
+        1769,
+        85,
+        2072,
+        654
       ],
-      "groundY": 527
+      "groundY": 593
     }
   ],
   "blinkFrames": [

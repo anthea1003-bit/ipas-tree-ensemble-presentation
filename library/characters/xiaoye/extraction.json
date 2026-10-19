@@ -1,6 +1,6 @@
 {
-  "source": "sheet-final3.png",
-  "source_sha256": "04eebc0e930ae853da4a9ce76bb5aaf789c8f6721279939679c012a7376864a9",
+  "source": "sheet-final4.png",
+  "source_sha256": "d9246930dbbd168f7c1cbe4989de74c60ce6befc43edcffb6362940b74e6a3ae",
   "sheet_size": [
     1254,
     1254
@@ -11,118 +11,118 @@
     "removed_low_alpha_pixels": 0,
     "decontaminated_white_pixels": 0
   },
-  "discarded_isolated_pixels": 1980,
+  "discarded_isolated_pixels": 6030,
   "parts": {
     "head-blank": {
       "file": "head-blank.png",
       "source_bounds": [
-        89,
-        108,
-        385,
-        465
+        57,
+        71,
+        391,
+        460
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 928
+      "transparent_hole_pixels": 897
     },
     "body": {
       "file": "body.png",
       "source_bounds": [
-        562,
-        335,
-        252,
-        269
+        529,
+        226,
+        291,
+        341
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 625
+      "transparent_hole_pixels": 551
     },
     "arm-l": {
       "file": "arm-l.png",
       "source_bounds": [
-        980,
-        379,
-        129,
-        188
+        1021,
+        248,
+        145,
+        302
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 256
+      "transparent_hole_pixels": 362
     },
     "arm-r": {
       "file": "arm-r.png",
       "source_bounds": [
-        154,
-        748,
-        119,
-        196
+        152,
+        658,
+        164,
+        317
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 286
+      "transparent_hole_pixels": 407
     },
     "arm-r-wave": {
       "file": "arm-r-wave.png",
       "source_bounds": [
-        572,
-        724,
-        182,
-        176
+        544,
+        644,
+        270,
+        259
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 330
+      "transparent_hole_pixels": 349
     },
     "eye-open": {
       "file": "eye-open.png",
       "source_bounds": [
-        915,
-        818,
-        217,
-        48
+        933,
+        816,
+        211,
+        50
       ],
       "component_count": 2,
-      "transparent_hole_pixels": 114
+      "transparent_hole_pixels": 112
     },
     "eye-closed": {
       "file": "eye-closed.png",
       "source_bounds": [
-        129,
-        1092,
-        215,
-        37
+        138,
+        1096,
+        232,
+        46
       ],
       "component_count": 2,
-      "transparent_hole_pixels": 166
+      "transparent_hole_pixels": 235
     },
     "mouth-smile": {
       "file": "mouth-smile.png",
       "source_bounds": [
-        997,
-        1089,
-        89,
-        39
+        988,
+        1092,
+        79,
+        35
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 116
+      "transparent_hole_pixels": 103
     },
     "mouth-o": {
       "file": "mouth-o.png",
       "source_bounds": [
-        625,
-        1076,
-        83,
-        66
+        596,
+        1072,
+        102,
+        83
       ],
       "component_count": 1,
-      "transparent_hole_pixels": 101
+      "transparent_hole_pixels": 127
     }
   },
   "missing": [],
   "issues": [
-    "head-blank: 有 928 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "body: 有 625 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "arm-l: 有 256 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "arm-r: 有 286 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "arm-r-wave: 有 330 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "eye-open: 有 114 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "eye-closed: 有 166 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "mouth-smile: 有 116 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
-    "mouth-o: 有 101 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。"
+    "head-blank: 有 897 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "body: 有 551 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-l: 有 362 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-r: 有 407 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "arm-r-wave: 有 349 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "eye-open: 有 112 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "eye-closed: 有 235 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "mouth-smile: 有 103 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。",
+    "mouth-o: 有 127 個封閉透明像素，原樣保留；需人眼核對是否為原畫紋理。"
   ]
 }
