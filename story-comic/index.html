@@ -60,7 +60,7 @@ h1{font-size:30px;text-align:center;margin:8px 0 2px;letter-spacing:.08em}
 <div class="layer"><div class="clip" style="clip-path:polygon(0.000% 68.814%,100.000% 65.424%,100.000% 100.000%,0.000% 100.000%)"><img src="p2-4.webp" alt="天亮，大家圍著籃子數答案，小綠眼睛發亮" style="left:0.000%;top:65.424%;width:100.000%;height:34.576%;object-position:50% 60%"></div></div>
 <div class="narr" style="left:1.667%;top:1.186%">那天收攤後，奶茶搬出一個大玻璃罐，<br>裡面裝滿了舊點單。</div>
 <div class="bubble t-bl" style="left:50.000%;top:3.390%">我們請大家<br>來幫忙吧。</div>
-<div class="narr" style="left:1.667%;top:30.508%">夜裡，山上的小樹們圍過來。<br>每棵樹從罐子裡抓一把點單，<br>抓到的都不一樣。<br>奶茶還定了一個小規矩：<br>每次猜，只能偷看兩三個線索。</div>
+<div class="narr" style="left:1.667%;top:30.508%">夜裡，山上的小樹們圍過來。<br>每棵樹抓一把點單，抄完就放回罐子，<br>所以大家抓到的都不一樣，<br>同一張也可能被抓好幾次。<br>奶茶還定了一個小規矩：<br>每次猜，只能偷看兩三個線索。</div>
 <div class="narr" style="left:64.881%;top:59.322%">有的看天空，有的看外套，<br>有的看時間。</div>
 <div class="narr" style="left:1.667%;top:70.339%">天亮了，大家把答案放進籃子數一數。<br>有幾棵猜錯了，但錯得都不一樣，<br>一數完，答案剛剛好。</div>
 <div class="bubble t-bl" style="left:47.619%;top:70.763%">大家想得不一樣，<br>反而比較準耶！</div>
@@ -71,7 +71,7 @@ h1{font-size:30px;text-align:center;margin:8px 0 2px;letter-spacing:.08em}
 <div class="layer"><div class="clip" style="clip-path:polygon(41.851% 34.837%,100.000% 32.373%,100.000% 66.102%,40.663% 68.113%)"><img src="p3-3.webp" alt="小綠看得入迷，眼睛閃閃發亮" style="left:40.663%;top:32.373%;width:59.337%;height:35.740%;object-position:50% 50%"></div></div>
 <div class="layer"><div class="clip" style="clip-path:polygon(40.626% 69.131%,100.000% 67.119%,100.000% 100.000%,39.524% 100.000%)"></div></div>
 <div class="narr" style="left:1.667%;top:1.186%">隔壁的松鼠送貨隊也想試試，<br>可是他們的做法不一樣。</div>
-<div class="narr" style="left:35.714%;top:25.424%">第一隻先猜，猜錯的用紅筆圈起來；第二隻只專心改紅圈那幾張，<br>再交給下一隻。一隻接一隻，紅圈越來越少。</div>
+<div class="narr" style="left:35.714%;top:24.576%">第一隻先猜，每張跟正確答案差多少，用紅筆記在旁邊；<br>第二隻專門補這些差距，再交給下一隻。一隻接一隻，紅字越來越少。</div>
 <div class="bubble t-bl" style="left:1.667%;top:37.288%">隊規一：筆記不准<br>寫太長，不然只會死背！</div>
 <div class="bubble t-bl" style="left:1.667%;top:47.458%">隊規二：點單缺一格<br>也照樣猜！</div>
 <div class="bubble t-bl" style="left:1.667%;top:56.780%">隊規三：接手前大家<br>一起翻帳本，想得快！</div>
@@ -98,11 +98,11 @@ h1{font-size:30px;text-align:center;margin:8px 0 2px;letter-spacing:.08em}
 <h2>故事裡藏的考點</h2>
 <table>
 <tr><td>小綠背下每位客人</td><td>決策樹太會背＝過擬合（高變異）</td></tr>
-<tr><td>每棵樹抓不同的點單</td><td>Bootstrap 抽樣</td></tr>
+<tr><td>抓一把點單、抄完放回罐子</td><td>Bootstrap 抽樣（取後放回，同一筆可能被抽到多次）</td></tr>
 <tr><td>只能偷看兩三個線索</td><td>每次分岔隨機選部分特徵</td></tr>
 <tr><td>籃子數答案、錯得不一樣剛好抵銷</td><td>隨機森林投票＝Bagging，降變異</td></tr>
-<tr><td>松鼠一隻接一隻改紅圈</td><td>梯度提升接力修錯＝Boosting，降偏差</td></tr>
-<tr><td>三條隊規</td><td>XGBoost：正則化（不亂長）、缺失值自動處理（不怕空）、並行化（跑得快）</td></tr>
+<tr><td>松鼠一隻接一隻補紅字的差距</td><td>梯度提升：每棵新樹修正前面留下的誤差（殘差）＝Boosting，降偏差</td></tr>
+<tr><td>三條隊規</td><td>XGBoost：正則化（不亂長）、缺失值自動處理（不怕空）、並行化（跑得快：每一棵樹找分岔時同時計算；樹和樹之間仍是一棵接一棵）</td></tr>
 <tr><td>小女孩：推一大格、推一小格</td><td>SHAP：單筆預測每個特徵的貢獻</td></tr>
 <tr><td>茶農：把幫上忙的次數加起來</td><td>特徵重要性：整體最看重哪個特徵</td></tr>
 </table>
