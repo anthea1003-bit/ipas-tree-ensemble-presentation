@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>奶茶茶攤猜猜樂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f7f3ea;--page:#fffdf8;--ink:#4a4238;--line:#5b5146;--tea:#8a6a4a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC",serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:30px;text-align:center;margin:8px 0 2px;letter-spacing:.08em}
+.sub{text-align:center;color:var(--tea);margin:0 0 24px}
+.page{background:var(--page);box-shadow:0 2px 14px rgba(90,70,40,.12);padding:14px;margin:0 auto 36px;position:relative}
+.pno{position:absolute;bottom:-26px;right:4px;color:var(--tea);font-size:14px}
+.canvas{position:relative;width:100%;aspect-ratio:840/1180;container-type:inline-size}
+.layer{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(1.5px 0 0 var(--line)) drop-shadow(-1.5px 0 0 var(--line)) drop-shadow(0 1.5px 0 var(--line)) drop-shadow(0 -1.5px 0 var(--line))}
+.clip{position:absolute;inset:0;background:#fffdf7}
+.clip img{position:absolute;object-fit:cover;display:block}
+.narr,.bubble,.sfx{position:absolute;z-index:2}
+.narr{background:#fffdf8;border:1.5px solid var(--line);padding:.6cqw 1.2cqw;font-size:1.95cqw;line-height:1.5;max-width:62cqw}
+.bubble{background:#fff;border:1.5px solid var(--line);border-radius:50%/42%;padding:1.4cqw 2.2cqw;font-size:1.95cqw;line-height:1.45;text-align:center}
+.bubble::after{content:"";position:absolute;width:1.7cqw;height:1.7cqw;background:#fff;border-right:1.5px solid var(--line);border-bottom:1.5px solid var(--line)}
+.t-bl::after{left:22%;bottom:-.95cqw;transform:rotate(45deg)}
+.t-br::after{right:22%;bottom:-.95cqw;transform:rotate(45deg)}
+.t-tl::after{left:22%;top:-.95cqw;transform:rotate(225deg)}
+.think{border-style:dashed}
+.mono{position:absolute;z-index:2;font-size:2.9cqw;line-height:1.7;color:var(--ink);letter-spacing:.06em}
+.notes{background:var(--page);box-shadow:0 2px 14px rgba(90,70,40,.12);padding:18px 20px;margin:12px auto 0}
+.notes h2{font-size:22px;margin:0 0 10px;color:var(--tea)}
+.notes table{width:100%;border-collapse:collapse;font-size:17px}
+.notes td{border-bottom:1px solid #e6dfcf;padding:7px 6px;vertical-align:top}
+.notes td:first-child{width:42%;color:var(--tea)}
+.sfx{font-size:3.6cqw;font-weight:700;color:var(--tea);letter-spacing:.1em;transform:rotate(-8deg)}
+</style>
+</head>
+<body>
+<main>
+<h1>奶茶茶攤的冷熱猜猜樂</h1>
+<p class="sub">樹模型讀書會番外篇</p>
+<section class="page" aria-label="第 1 頁"><div class="canvas">
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 0.000%,100.000% 0.000%,100.000% 27.966%,0.000% 32.203%)"><img src="p1-1.webp" alt="清晨，山腳的小茶攤，奶茶煮茶，小綠舉著葉子" style="left:0.000%;top:0.000%;width:100.000%;height:32.203%;object-position:50% 70%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 33.220%,38.976% 31.505%,35.714% 100.000%,0.000% 100.000%)"><img src="p1-2.webp" alt="小綠驕傲地捧著寫滿點單記憶的葉子" style="left:0.000%;top:31.505%;width:38.976%;height:68.495%;object-position:38% 55%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(40.407% 31.508%,100.000% 28.983%,100.000% 62.712%,38.797% 65.254%)"><img src="p1-3.webp" alt="戴草帽的王奶奶指著冰茶" style="left:38.797%;top:28.983%;width:61.203%;height:36.271%;object-position:50% 55%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(38.749% 66.271%,100.000% 63.729%,100.000% 100.000%,37.143% 100.000%)"><img src="p1-4.webp" alt="小綠愣住，頭上的嫩芽垂下來" style="left:37.143%;top:63.729%;width:62.857%;height:36.271%;object-position:50% 64%"></div></div>
+<div class="narr" style="left:1.667%;top:1.186%">奶茶在山腳開了一間小茶攤。<br>每天早上都要先猜：今天要多煮熱茶，還是多冰幾桶冷茶？</div>
+<div class="narr" style="left:14.286%;top:33.898%">幫忙的是小綠。<br>小綠的記性好得驚人。</div>
+<div class="bubble t-tl" style="left:2.143%;top:91.525%">誰哪天穿什麼外套、<br>點了什麼，我全記得！</div>
+<div class="bubble think t-bl" style="left:44.643%;top:33.898%">王奶奶上週二點熱的，<br>所以今天也是熱的！</div>
+<div class="bubble t-br" style="left:83.333%;top:58.475%">來杯冰的。</div>
+<div class="sfx" style="left:77.381%;top:68.644%">咦……</div>
+<div class="narr" style="left:41.905%;top:76.271%">小綠愣住了，<br>葉子垂得低低的。</div>
+</div><span class="pno">1</span></section>
+<section class="page" aria-label="第 2 頁"><div class="canvas">
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 0.000%,100.000% 0.000%,100.000% 30.508%,0.000% 27.119%)"><img src="p2-1.webp" alt="星夜，奶茶捧著裝滿點單的玻璃罐，小樹們走過來" style="left:0.000%;top:0.000%;width:100.000%;height:30.508%;object-position:50% 55%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 28.136%,58.577% 30.121%,60.274% 65.753%,0.000% 67.797%)"><img src="p2-2.webp" alt="小樹們各自從罐子抓一把點單" style="left:0.000%;top:28.136%;width:60.274%;height:39.661%;object-position:50% 50%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(60.008% 30.170%,100.000% 31.525%,100.000% 64.407%,61.700% 65.705%)"><img src="p2-3.webp" alt="小樹們各看一個線索：天空、外套、時鐘" style="left:60.008%;top:30.170%;width:39.992%;height:35.535%;object-position:50% 50%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 68.814%,100.000% 65.424%,100.000% 100.000%,0.000% 100.000%)"><img src="p2-4.webp" alt="天亮，大家圍著籃子數答案，小綠眼睛發亮" style="left:0.000%;top:65.424%;width:100.000%;height:34.576%;object-position:50% 60%"></div></div>
+<div class="narr" style="left:1.667%;top:1.186%">那天收攤後，奶茶搬出一個大玻璃罐，<br>裡面裝滿了舊點單。</div>
+<div class="bubble t-bl" style="left:50.000%;top:3.390%">我們請大家<br>來幫忙吧。</div>
+<div class="narr" style="left:1.667%;top:30.508%">夜裡，山上的小樹們圍過來。<br>每棵樹從罐子裡抓一把點單，<br>抓到的都不一樣。<br>奶茶還定了一個小規矩：<br>每次猜，只能偷看兩三個線索。</div>
+<div class="narr" style="left:64.881%;top:59.322%">有的看天空，有的看外套，<br>有的看時間。</div>
+<div class="narr" style="left:1.667%;top:70.339%">天亮了，大家把答案放進籃子數一數。<br>有幾棵猜錯了，但錯得都不一樣，<br>一數完，答案剛剛好。</div>
+<div class="bubble t-bl" style="left:47.619%;top:70.763%">大家想得不一樣，<br>反而比較準耶！</div>
+</div><span class="pno">2</span></section>
+<section class="page" aria-label="第 3 頁"><div class="canvas">
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 0.000%,100.000% 0.000%,100.000% 31.356%,0.000% 35.593%)"><img src="p3-1.webp" alt="松鼠送貨隊排成一列，一隻接一隻傳點單，紅圈越來越少" style="left:0.000%;top:0.000%;width:100.000%;height:35.593%;object-position:50% 50%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 36.610%,40.420% 34.897%,38.095% 100.000%,0.000% 100.000%)"><img src="p3-2.webp" alt="戴小帽的松鼠隊長阿克站在樹樁上宣布隊規" style="left:0.000%;top:34.897%;width:40.420%;height:65.103%;object-position:50% 45%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(41.851% 34.837%,100.000% 32.373%,100.000% 66.102%,40.663% 68.113%)"><img src="p3-3.webp" alt="小綠看得入迷，眼睛閃閃發亮" style="left:40.663%;top:32.373%;width:59.337%;height:35.740%;object-position:50% 50%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(40.626% 69.131%,100.000% 67.119%,100.000% 100.000%,39.524% 100.000%)"></div></div>
+<div class="narr" style="left:1.667%;top:1.186%">隔壁的松鼠送貨隊也想試試，<br>可是他們的做法不一樣。</div>
+<div class="narr" style="left:35.714%;top:25.424%">第一隻先猜，猜錯的用紅筆圈起來；第二隻只專心改紅圈那幾張，<br>再交給下一隻。一隻接一隻，紅圈越來越少。</div>
+<div class="bubble t-bl" style="left:1.667%;top:37.288%">隊規一：筆記不准<br>寫太長，不然只會死背！</div>
+<div class="bubble t-bl" style="left:1.667%;top:47.458%">隊規二：點單缺一格<br>也照樣猜！</div>
+<div class="bubble t-bl" style="left:1.667%;top:56.780%">隊規三：接手前大家<br>一起翻帳本，想得快！</div>
+<div class="narr" style="left:3.571%;top:84.746%">隊長阿克</div>
+<div class="sfx" style="left:82.143%;top:35.593%">哇……</div>
+<div class="mono" style="left:45.238%;top:76.271%">小樹們是一起投票，<br>松鼠們是一棒接一棒。</div>
+</div><span class="pno">3</span></section>
+<section class="page" aria-label="第 4 頁"><div class="canvas">
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 0.000%,50.000% 0.000%,51.632% 45.707%,0.000% 47.458%)"><img src="p4-1.webp" alt="小女孩捧著熱可可，奶茶蹲下來數理由" style="left:0.000%;top:0.000%;width:51.632%;height:47.458%;object-position:50% 55%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(51.429% 0.000%,100.000% 0.000%,100.000% 44.068%,53.059% 45.659%)"><img src="p4-2.webp" alt="茶農伯伯來問，奶茶翻開帳本" style="left:51.429%;top:0.000%;width:48.571%;height:45.659%;object-position:50% 55%"></div></div>
+<div class="layer"><div class="clip" style="clip-path:polygon(0.000% 48.475%,100.000% 45.085%,100.000% 100.000%,0.000% 100.000%)"><img src="p4-3.webp" alt="傍晚，奶茶把一杯溫茶放在小綠身邊，滿山樹葉搖曳" style="left:0.000%;top:45.085%;width:100.000%;height:54.915%;object-position:50% 55%"></div></div>
+<div class="narr" style="left:1.667%;top:1.186%">過了幾天，<br>一個小女孩踮著腳問——</div>
+<div class="bubble t-bl" style="left:1.667%;top:9.322%">為什麼你們猜<br>我要熱可可？</div>
+<div class="bubble t-br" style="left:17.857%;top:31.780%">今天好冷，往熱的推一大格；<br>你剛跑過來，往冰的推一小格。<br>加起來，熱的贏了。</div>
+<div class="narr" style="left:54.762%;top:1.186%">月底，茶農伯伯來問——</div>
+<div class="bubble t-bl" style="left:55.952%;top:7.627%">這麼多幫手，<br>到底最在意什麼？</div>
+<div class="bubble t-br" style="left:66.667%;top:33.898%">把每個線索幫上忙的<br>次數加起來……<br>天氣冷不冷，最重要。</div>
+<div class="bubble think t-br" style="left:23.810%;top:67.797%">我以為要記住全部，<br>才是好幫手。</div>
+<div class="bubble t-br" style="left:50.000%;top:50.847%">記住一點點，跟大家一起想，<br>再把理由好好說出來，<br>就夠了。</div>
+<div class="narr" style="left:1.667%;top:92.373%">山風吹過，滿山的葉子沙沙地，像在點頭。</div>
+<div class="sfx" style="left:88.095%;top:93.220%">完</div>
+</div><span class="pno">4</span></section>
+<section class="notes" aria-label="故事裡藏的考點">
+<h2>故事裡藏的考點</h2>
+<table>
+<tr><td>小綠背下每位客人</td><td>決策樹太會背＝過擬合（高變異）</td></tr>
+<tr><td>每棵樹抓不同的點單</td><td>Bootstrap 抽樣</td></tr>
+<tr><td>只能偷看兩三個線索</td><td>每次分岔隨機選部分特徵</td></tr>
+<tr><td>籃子數答案、錯得不一樣剛好抵銷</td><td>隨機森林投票＝Bagging，降變異</td></tr>
+<tr><td>松鼠一隻接一隻改紅圈</td><td>梯度提升接力修錯＝Boosting，降偏差</td></tr>
+<tr><td>三條隊規</td><td>XGBoost：正則化（不亂長）、缺失值自動處理（不怕空）、並行化（跑得快）</td></tr>
+<tr><td>小女孩：推一大格、推一小格</td><td>SHAP：單筆預測每個特徵的貢獻</td></tr>
+<tr><td>茶農：把幫上忙的次數加起來</td><td>特徵重要性：整體最看重哪個特徵</td></tr>
+</table>
+</section>
+</main>
+</body>
+</html>
